@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://evelance.de/online_feature_model_editor/featuremodeldrawer.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style type="text/css">
+            body { margin:0;overflow:hidden; }
+            #toolbar { position:fixed;top:10px;left:10px;padding:8px; }
+            #toolbar p { margin:0 0 8px 0; }
+            #toolbar p span { margin-left:8px; }
+        </style>
+        <title>Draw a feature model</title>
+    </head>
+    <body>
+        <div id="toolbar">
+            <p>
+                <input type="button" value="Export SVG" id="export_svg">
+                <input type="button" value="Export PNG" id="export_png">
+                <span>Click empty space: create new box | Right click box: edit it | Double click other box during edit: (un-)connect them</span>
+            </p>
+            <div id="settings" style="display: none;">
+                <input id="boxname" type="text">
+                <select id="abstract"><option value="A">Abstract</option><option value="C">Concrete</option></select>
+                <select id="child"><option value="C">Normal child</option><option value="M">Mandatory</option><option value="P">Optional</option></select>
+                <select id="parent"><option value="A">And</option><option value="O">Or</option><option value="X">Alternative</option></select>
+                <input id="delete" type="button" value="Delete">
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="model" width="2400px" height="1240px">
+            <style>
+                text { font:18px serif;user-select:none; }
+                rect { fill:#eee;stroke:#afafaf;stroke-width:1px; }
+                line { stroke:#555;stroke-width:2;stroke-linecap:round; }
+                circle { stroke:#555;stroke-width:2;fill:#fff; }
+                path { stroke:#555;fill:#555;stroke-width:2; }
+            </style>
+        <g><line x1="1349" y1="60.9444465637207" x2="841" y2="86.5"></line><line x1="1248" y1="61.5" x2="841" y2="86.5"></line><line x1="1109" y1="59.5" x2="841" y2="86.5"></line><line x1="997" y1="58.94444274902344" x2="841" y2="86.5"></line><line x1="841" y1="121.5" x2="1947" y2="125.25"></line><line x1="2092" y1="48.499996185302734" x2="841" y2="86.5"></line><line x1="2041" y1="99.5" x2="841" y2="86.5"></line><line x1="841" y1="121.5" x2="137" y2="155.25001525878906"></line><line x1="841" y1="121.5" x2="1184" y2="152.25"></line><line x1="790" y1="176.5" x2="1184" y2="152.25"></line><line x1="1184" y1="186.5" x2="1526" y2="198.25"></line><line x1="1184" y1="186.5" x2="1679" y2="173.25"></line><line x1="1184" y1="186.5" x2="1314" y2="236.25001525878906"></line><line x1="1106" y1="230.50001525878906" x2="1314" y2="236.25001525878906"></line><line x1="1314" y1="270.50001525878906" x2="1268" y2="325.25"></line><line x1="1314" y1="270.50001525878906" x2="1361" y2="330.25"></line><line x1="921" y1="219.50003051757812" x2="1106" y2="196.25001525878906"></line><line x1="1106" y1="230.50001525878906" x2="981" y2="263.25"></line><line x1="1106" y1="230.50001525878906" x2="1119" y2="280.25"></line><line x1="921" y1="219.50003051757812" x2="849" y2="237.25"></line><line x1="921" y1="219.50003051757812" x2="904" y2="247.25"></line><line x1="981" y1="297.5" x2="956" y2="344.2500305175781"></line><line x1="981" y1="297.5" x2="1005" y2="348.2500305175781"></line><line x1="1119" y1="314.5" x2="1056" y2="346.25"></line><line x1="1119" y1="314.5" x2="1178" y2="332.25"></line><line x1="1268" y1="359.5" x2="1171" y2="380.25"></line><line x1="1268" y1="359.5" x2="1297" y2="384.2500305175781"></line><line x1="1171" y1="414.5" x2="1139" y2="456.25"></line><line x1="1171" y1="414.5" x2="1237" y2="526.25"></line><line x1="1297" y1="418.5000305175781" x2="1252" y2="465.25"></line><line x1="1297" y1="418.5000305175781" x2="1268" y2="581.25"></line><line x1="1361" y1="364.5" x2="1346" y2="444.2500305175781"></line><line x1="1361" y1="364.5" x2="1452" y2="440.25"></line><line x1="1361" y1="364.5" x2="1588" y2="458.2500305175781"></line><line x1="1361" y1="364.5" x2="1736" y2="442.25"></line><line x1="1346" y1="478.5000305175781" x2="1386" y2="519.25"></line><line x1="1346" y1="478.5000305175781" x2="1323" y2="523.25"></line><line x1="1452" y1="474.5" x2="1442" y2="517.25"></line><line x1="1452" y1="474.5" x2="1516" y2="511.25"></line><line x1="1588" y1="492.5000305175781" x2="1685" y2="522.25"></line><line x1="1588" y1="492.5000305175781" x2="1596" y2="525.25"></line><line x1="790" y1="176.5" x2="740" y2="330.25"></line><line x1="740" y1="364.5" x2="722" y2="501.25"></line><line x1="740" y1="364.5" x2="882" y2="423.2500305175781"></line><line x1="740" y1="364.5" x2="883" y2="613.25"></line><line x1="722" y1="535.5" x2="701" y2="678.25"></line><line x1="722" y1="535.5" x2="786" y2="683.25"></line><line x1="882" y1="457.5000305175781" x2="904" y2="544.25"></line><line x1="882" y1="457.5000305175781" x2="954" y2="541.25"></line><line x1="883" y1="647.5000381469727" x2="1010" y2="724.2500610351562"></line><line x1="883" y1="647.5000381469727" x2="940" y2="698.25"></line><line x1="1467" y1="291.5" x2="1424" y2="317.25"></line><line x1="1467" y1="291.5" x2="1485" y2="315.25"></line><line x1="1526" y1="232.5" x2="1467" y2="257.25"></line><line x1="1828" y1="205.50001525878906" x2="1679" y2="173.25"></line><line x1="1679" y1="207.5" x2="1675" y2="257.25"></line><line x1="1675" y1="291.5" x2="1671" y2="371.25"></line><line x1="1675" y1="291.5" x2="1739" y2="369.2500305175781"></line><line x1="1679" y1="207.5" x2="1739" y2="284.25"></line><line x1="1679" y1="207.5" x2="1811" y2="284.25"></line><line x1="1526" y1="232.5" x2="1570" y2="262.25"></line><line x1="1570" y1="296.5" x2="1541" y2="329.2500305175781"></line><line x1="1570" y1="296.5" x2="1625" y2="330.25"></line><line x1="2041" y1="99.5" x2="2163" y2="124.25"></line><line x1="2041" y1="99.5" x2="2061" y2="136.25"></line><line x1="2061" y1="170.50000762939453" x2="2062" y2="194.25"></line><line x1="2061" y1="170.50000762939453" x2="2213" y2="197.25"></line></g><g><path visibility="hidden"></path><rect x="816" y="87" width="51.0244140625" height="34" style=""></rect><text x="824" y="110">Root</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="976" y="26.444442749023438" width="43.98611259460449" height="32" style=""></rect><text x="984" y="48">title</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1062" y="25" width="95.984375" height="34" style=""></rect><text x="1070" y="48">description</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1225" y="27" width="46.0234375" height="34" style=""></rect><text x="1233" y="50">host</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1327.0001220703125" y="28.444446563720703" width="44.99481964111328" height="32" style=""></rect><text x="1335" y="50">port</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2063" y="14.75" width="59.984375" height="33.24999809265137" style=""></rect><text x="2071" y="37">theme</text><circle r="7" visibility="hidden" cx="1946" cy="90.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1917" y="125.75" width="61.008697509765625" height="33.25" style=""></rect><text x="1925" y="148">layout</text><circle r="7" visibility="visible" cx="1947" cy="125.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="2023" y="65.75" width="37.9921875" height="33.25" style=""></rect><text x="2031" y="88">api</text><circle r="7" visibility="hidden" cx="1902" cy="88.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="109" y="155.75001525878906" width="56.99609375" height="33.25" style=""></rect><text x="117" y="178">pages</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1133" y="152.75" width="102.9921875" height="33.25" style=""></rect><text x="1141" y="175">components</text><circle r="7" visibility="visible" cx="1184" cy="152.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1277" y="236.75" width="74.0078125" height="33.25" style=""></rect><text x="1285" y="259">pop-ups</text><circle r="7" visibility="visible" cx="1314" cy="236.25001525878906" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="756" y="142.75" width="68.01171875" height="33.25" style=""></rect><text x="764" y="165">modals</text><circle r="7" visibility="hidden" cx="790" cy="154.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1338" y="330.75" width="47.9921875" height="33.25" style=""></rect><text x="1346" y="353">alert</text><circle r="7" visibility="visible" cx="1361" cy="330.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1498" y="198.75" width="56" height="33.25" style=""></rect><text x="1506" y="221">menu</text><circle r="7" visibility="visible" cx="1526" cy="198.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1650" y="173.75" width="59.040008544921875" height="33.25" style=""></rect><text x="1658" y="196">footer</text><circle r="7" visibility="visible" cx="1679" cy="173.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1215" y="325.75" width="107.9921875" height="33.25" style=""></rect><text x="1223" y="348">confirmation</text><circle r="7" visibility="visible" cx="1268" cy="325.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1081" y="196.75" width="51.03318786621094" height="33.25" style=""></rect><text x="1089" y="219">error</text><circle r="7" visibility="visible" cx="1106" cy="196.25001525878906" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="visible" d="M 921 219.50003051757812 L 950.7658540801262 215.7591842389088 A 30 30 0 0 1 891.8720804736407 226.68085944367976 Z"></path><rect x="867" y="185.75001525878906" width="108.021484375" height="33.25" style=""></rect><text x="875" y="208">show-header</text><circle r="7" visibility="hidden" cx="931" cy="197.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 981 297.5 L 993.8253528107751 324.6202936060645 A 30 30 0 0 1 966.8529978592958 323.95491127240666 Z"></path><rect x="937" y="263.75" width="89.984375" height="33.25" style=""></rect><text x="945" y="286">close-icon</text><circle r="7" visibility="visible" cx="981" cy="263.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 1119 314.5 L 1147.728079188758 323.1427695864484 A 30 30 0 0 1 1092.2098431112875 328.0013885907401 Z"></path><rect x="1050" y="280.75" width="139.984375" height="33.25" style=""></rect><text x="1058" y="303">close-button-side</text><circle r="7" visibility="visible" cx="1119" cy="280.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="828" y="237.75" width="43.98828125" height="33.25" style=""></rect><text x="836" y="260">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="880" y="247.75" width="49.984375" height="33.25" style=""></rect><text x="888" y="270">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="-8" y="-6" width="16" height="12" style=""></rect><text x="436" y="493"></text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="-8" y="-6" width="16" height="12" style=""></rect><text x="420" y="488"></text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="981" y="348.7500305175781" width="49.984375" height="33.25" style=""></rect><text x="989" y="371">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="935" y="344.75" width="43.98828125" height="33.25" style=""></rect><text x="943" y="367">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1036" y="346.75" width="40.00390625" height="33.25" style=""></rect><text x="1044" y="369">left</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1153" y="332.75" width="50.013671875" height="33.25" style=""></rect><text x="1161" y="355">right</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="visible" d="M 1171 414.5 L 1186.2560382238485 440.33124653810717 A 30 30 0 0 1 1152.7500470694733 438.3104854640464 Z"></path><rect x="1117" y="380.75" width="108.021484375" height="33.25" style=""></rect><text x="1125" y="403">show-header</text><circle r="7" visibility="visible" cx="1171" cy="380.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 1297 418.5000305175781 L 1291.7372718417284 448.0348183504395 A 30 30 0 0 1 1276.1951850859946 440.1139074579601 Z"></path><rect x="1253" y="384.75" width="89.98445129394531" height="33.25" style=""></rect><text x="1261" y="407">close-icon</text><circle r="7" visibility="visible" cx="1297" cy="384.2500305175781" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1118" y="456.75" width="43.98828125" height="33.25" style=""></rect><text x="1126" y="479">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1213" y="526.75" width="49.984375" height="33.25" style=""></rect><text x="1221" y="549">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1231" y="465.75" width="43.98828125" height="33.25" style=""></rect><text x="1239" y="488">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1244" y="581.75" width="49.98445129394531" height="33.25" style=""></rect><text x="1252" y="604">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="visible" d="M 1346 478.5000305175781 L 1367.0152783660837 499.909329319641 A 30 30 0 0 1 1332.286288838883 505.1821242545668 Z"></path><rect x="1292" y="444.75" width="108.02133178710938" height="33.25" style=""></rect><text x="1300" y="467">show-header</text><circle r="7" visibility="visible" cx="1346" cy="444.2500305175781" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 1452 474.5 L 1478.015967591848 489.4388563906315 A 30 30 0 0 1 1445.166911896842 503.711451641 Z"></path><rect x="1408" y="440.75" width="89.984375" height="33.25" style=""></rect><text x="1416" y="463">close-icon</text><circle r="7" visibility="visible" cx="1452" cy="440.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 1588 492.5000305175781 L 1616.6813524884612 501.29662187063286 A 30 30 0 0 1 1595.1189339288155 521.6431391320887 Z"></path><rect x="1519" y="458.7500305175781" width="139.984375" height="33.25" style=""></rect><text x="1527" y="481">close-button-side</text><circle r="7" visibility="visible" cx="1588" cy="458.2500305175781" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1698" y="442.75" width="76" height="33.25" style=""></rect><text x="1706" y="465">duration</text><circle r="7" visibility="visible" cx="1736" cy="442.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1365" y="519.75" width="43.98828125" height="33.25" style=""></rect><text x="1373" y="542">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1421.0001220703125" y="517.75" width="43.98828125" height="33.25" style=""></rect><text x="1429" y="540">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1299" y="523.75" width="49.984375" height="33.25" style=""></rect><text x="1307" y="546">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1492" y="511.75" width="49.984375" height="33.25" style=""></rect><text x="1500" y="534">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1576.0001220703125" y="525.75" width="40.00390625" height="33.25" style=""></rect><text x="1584" y="548">left</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1660" y="522.75" width="50.013519287109375" height="33.25" style=""></rect><text x="1668" y="545">right</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="709.0000610351562" y="330.75" width="63.01171875" height="33.25" style=""></rect><text x="717" y="353">profile</text><circle r="7" visibility="visible" cx="740" cy="330.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="visible" d="M 722 535.5 L 733.9243014577189 563.0283678184059 A 30 30 0 0 1 717.6336838313894 565.1805539556749 Z"></path><rect x="665" y="501.75" width="115.98046875" height="33.25" style=""></rect><text x="673" y="524">dummyImage</text><circle r="7" visibility="visible" cx="722" cy="501.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 883 647.5000381469727 L 908.675599817104 663.0165962070558 A 30 30 0 0 1 905.4060138375027 667.4492372264756 Z"></path><rect x="805" y="613.75" width="157.953125" height="33.250038146972656" style=""></rect><text x="813" y="636">allow-delete-profile</text><circle r="7" visibility="visible" cx="883" cy="613.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="visible" d="M 882 457.5000305175781 L 901.5572782644441 480.2489396537785 A 30 30 0 0 1 889.3746205929443 486.5794901258673 Z" style=""></path><rect x="828" y="423.7500305175781" width="108.02140808105469" height="33.25" style=""></rect><text x="836" y="446">show-header</text><circle r="7" visibility="visible" cx="882" cy="423.2500305175781" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="680" y="678.75" width="43.98828125" height="33.25" style=""></rect><text x="688" y="701">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="762" y="683.75" width="49.984375" height="33.25" style=""></rect><text x="770" y="706">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="883" y="544.75" width="43.98828125" height="33.25" style=""></rect><text x="891" y="567">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="930" y="541.75" width="49.984375" height="33.25" style=""></rect><text x="938" y="564">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="989.0000610351562" y="724.7500610351562" width="43.98828125" height="33.25" style=""></rect><text x="997" y="747">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="916" y="698.75" width="49.984375" height="33.25" style=""></rect><text x="924" y="721">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="visible" d="M 1467 291.5 L 1485.1205758128162 315.4090930863548 A 30 30 0 0 1 1441.2620181617988 306.91286121706236 Z"></path><rect x="1421.0001220703125" y="257.75" width="92.015625" height="33.25" style=""></rect><text x="1429" y="280">show-logo</text><circle r="7" visibility="visible" cx="1467" cy="257.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1403" y="317.75" width="43.98828125" height="33.25" style=""></rect><text x="1411" y="340">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1461.0001220703125" y="315.75" width="49.984375" height="33.25" style=""></rect><text x="1469" y="338">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="visible" d="M 1675 291.5 L 1694.0659916039099 314.6622098289356 A 30 30 0 0 1 1673.4971869306005 321.46233557115403 Z"></path><rect x="1648" y="257.75" width="54.0078125" height="33.25" style=""></rect><text x="1656" y="280">show</text><circle r="7" visibility="visible" cx="1675" cy="257.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1761.0001220703125" y="171.75" width="135.01260375976562" height="33.25" style=""></rect><text x="1769" y="194">bacground-color</text><circle r="7" visibility="hidden" cx="1814" cy="175.25003051757812" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1709" y="284.75" width="61.00885009765625" height="33.25" style=""></rect><text x="1717" y="307">height</text><circle r="7" visibility="visible" cx="1739" cy="284.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1777" y="284.75" width="68.998046875" height="33.25" style=""></rect><text x="1785" y="307">content</text><circle r="7" visibility="visible" cx="1811" cy="284.25" style="fill: rgb(136, 136, 136);"></circle></g><g><path visibility="hidden"></path><rect x="1650" y="371.75" width="43.98828125" height="33.25" style=""></rect><text x="1658" y="394">true</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1715" y="369.75" width="49.984375" height="33.25" style=""></rect><text x="1723" y="392">false</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="visible" d="M 1570 296.5 L 1595.56968185946 312.1904865955777 A 30 30 0 0 1 1550.1116982751591 318.9600858079771 Z"></path><rect x="1547" y="262.75" width="46.99609375" height="33.25" style=""></rect><text x="1555" y="285">type</text><circle r="7" visibility="visible" cx="1570" cy="262.25" style="fill: rgb(255, 255, 255);"></circle></g><g><path visibility="hidden"></path><rect x="1510" y="329.75" width="62.04583740234375" height="33.25" style=""></rect><text x="1518" y="352">topbar</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1591.0001220703125" y="330.75" width="68.03994750976562" height="33.25" style=""></rect><text x="1599" y="353">sidebar</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2218" y="10.75" width="89.49609375" height="33.25" style=""></rect><text x="2226" y="33">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2244" y="51.75" width="89.49609375" height="33.25" style=""></rect><text x="2252" y="74">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2271" y="97.75" width="89.49609375" height="33.25" style=""></rect><text x="2279" y="120">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2287" y="137.75" width="89.49609375" height="33.25" style=""></rect><text x="2295" y="160">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2291" y="186.75" width="89.49609375" height="33.25" style=""></rect><text x="2299" y="209">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2290" y="226.75" width="89.49609375" height="33.25" style=""></rect><text x="2298" y="249">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1964" y="333.7500305175781" width="89.49609375" height="33.25" style=""></rect><text x="1972" y="356">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1906.0001220703125" y="217.75" width="89.49609375" height="33.25" style=""></rect><text x="1914" y="240">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1909" y="274.75" width="89.49609375" height="33.25" style=""></rect><text x="1917" y="297">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2119" y="124.75" width="89.49609375" height="33.25" style=""></rect><text x="2127" y="147">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2017" y="136.75" width="89.49609375" height="33.250009536743164" style=""></rect><text x="2025" y="159">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2018" y="194.75" width="89.49609375" height="33.25" style=""></rect><text x="2026" y="217">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2169" y="197.75" width="89.49609375" height="33.25" style=""></rect><text x="2177" y="220">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="1999" y="250.75" width="89.49609375" height="33.25" style=""></rect><text x="2007" y="273">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2061" y="294.75" width="89.49609375" height="33.25" style=""></rect><text x="2069" y="317">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2067" y="335.75" width="89.49609375" height="33.25" style=""></rect><text x="2075" y="358">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2174" y="341.75" width="89.49609375" height="33.25" style=""></rect><text x="2182" y="364">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2162" y="251.75" width="89.49609375" height="33.25" style=""></rect><text x="2170" y="274">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2170" y="299.75" width="89.49609375" height="33.25" style=""></rect><text x="2178" y="322">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2184" y="393.7500305175781" width="89.49609375" height="33.25" style=""></rect><text x="2192" y="416">Box name</text><circle r="7" visibility="hidden"></circle></g><g><path visibility="hidden"></path><rect x="2074" y="389.75" width="89.49609375" height="33.25" style=""></rect><text x="2082" y="412">Box name</text><circle r="7" visibility="hidden"></circle></g></svg>
+        <script type="text/javascript">
+            const floor = Math.floor.bind(Math);
+            const id = document.getElementById.bind(document);
+            const svgatt = function(element, attributes) {
+                for (var prop in attributes)
+                    element.setAttribute(prop, attributes[prop]);
+            };
+            const svgel = function(name, attributes) {
+                var el = document.createElementNS("http://www.w3.org/2000/svg", name);
+                if (attributes != undefined)
+                    svgatt(el, attributes);
+                return el;
+            };
+            
+            /* SVG image containing one group with all lines and zero or more groups representing boxes */
+            const svg = id("model");
+            const lines = svgel("g");
+            svg.appendChild(lines);
+            
+            var cancel_space_click = false; /* Click events seem to be uncancelable from SVG sub-elements */
+            var cancel_space_click_function = function() { cancel_space_click = true; };
+            
+            
+            /* Input elements for box editing */
+            const settings = id("settings");
+            const settings_name = id("boxname");
+            const settings_abstract = id("abstract");
+            const settings_child = id("child");
+            const settings_parent = id("parent");
+            const settings_delete = id("delete");
+            const CHILD_NORMAL = "C", CHILD_MANDATORY = "M", CHILD_OPTIONAL = "P";
+            const PARENT_NORMAL = "A", PARENT_OR = "O", PARENT_ALTERNATIVE = "X";
+            
+            /* Box management */
+            var all_boxes = [];
+            var create_box = function(description, x, y) {
+                var box = create_box_element(description, x, y, false, CHILD_NORMAL, PARENT_NORMAL);
+                box.g.onclick = cancel_space_click_function;
+                box.g.ondblclick = function() { box_doubleclick(box); };
+                box.g.onmousedown = function(ev) { box_start_move(box, ev); };
+                box.g.oncontextmenu = function() { cancel_space_click = false; box_editmode(box); };
+                box_update_complete(box);
+                all_boxes.push(box);
+                return box;
+            };
+            var create_box_element = function(description, x, y, concrete, childstyle, parentstyle) {
+                var g = svgel("g");              /* Logical box group */
+                var t = svgel("text");           /* Text field (determines box size) */
+                var r = svgel("rect");           /* Bordered box */
+                var c = svgel("circle", {r: 7}); /* Child type indicator (dot) */
+                var p = svgel("path");           /* Parent type indicator (arc) */
+                t.appendChild(document.createTextNode(description));
+                g.appendChild(p);
+                g.appendChild(r);
+                g.appendChild(t);
+                g.appendChild(c);
+                svg.appendChild(g);
+                return box = { x: x, y: y, g: g, t: t, r: r, c: c, p: p, conns: [], concrete: concrete, childstyle: childstyle, parentstyle: parentstyle };
+            };
+            var pad = { x: 8, y: 6};
+            var box_update_complete = function(box) {
+                /* Update text first, then use the bounding box of text to update the background */
+                var tbb = box.t.getBBox();
+                svgatt(box.t, {x: box.x - floor(tbb.width / 2), y: box.y -floor(tbb.height / 4) });
+                tbb = box.t.getBBox();
+                svgatt(box.r, {x: tbb.x - pad.x, y: tbb.y - pad.y, width: tbb.width + pad.x * 2, height: tbb.height + pad.y * 2});
+                /* Update connected lines */
+                box_update_visual(box);
+                for (var i in box.conns) {
+                    var conn = box.conns[i];
+                    box_update_visual((box == conn.box1) ? conn.box2 : conn.box1);
+                }
+            };
+            var parent_arc_r = 30;
+            var box_update_visual = function(box) {
+                var bb = box.r.getBBox();
+                var has_parents = false, num_children = 0;
+                var min_angle = Math.PI, max_angle = -Math.PI;
+                for (var i in box.conns) {
+                    var conn = box.conns[i];
+                    var parent_box, child_box, pbb, cbb;
+                    if (conn.box1.y < conn.box2.y) {
+                        parent_box = conn.box1, child_box = conn.box2;
+                    } else {
+                        parent_box = conn.box2, child_box = conn.box1;
+                    }
+                    pbb = parent_box.r.getBBox();
+                    cbb = child_box.r.getBBox();
+                    var px = floor(pbb.x + pbb.width / 2), py = pbb.y + pbb.height + 0.5;
+                    var cx = floor(cbb.x + cbb.width / 2), cy = cbb.y - 0.5;
+                    svgatt(conn.ln, { x1: px, y1: py, x2: cx, y2: cy });
+                    if (box == parent_box) {
+                        var angle = Math.atan2(cx - px, cy - py);
+                        if (angle < min_angle) min_angle = angle;
+                        if (angle > max_angle) max_angle = angle;
+                        ++num_children;
+                    } else {
+                        has_parents = true;
+                    }
+                }
+                box.r.style.fill = box.concrete ? "#ccc" : null;
+                if (box.childstyle != CHILD_NORMAL && has_parents) {
+                    box.c.style.fill = (box.childstyle == CHILD_MANDATORY) ? "#888" : "#fff";
+                    svgatt(box.c, {visibility: "visible", cx: floor(bb.x + bb.width / 2), cy: bb.y - 0.5});
+                } else {
+                    svgatt(box.c, {visibility: "hidden"});
+                }
+                if (box.parentstyle != PARENT_NORMAL && num_children >= 2) {
+                    box.p.style.fill = (box.parentstyle == PARENT_OR) ? null : "none";
+                    var sx = floor(bb.x + bb.width / 2), sy = bb.y + bb.height + 0.5;         /* Center bottom */
+                    var lx = sx + parent_arc_r * Math.sin(max_angle), ly = sy + parent_arc_r * Math.cos(max_angle); /* Left starting point */
+                    var rx = sx + parent_arc_r * Math.sin(min_angle), ry = sy + parent_arc_r * Math.cos(min_angle); /* Right ending point */
+                    var draw = "M "+sx+" "+sy+" L "+lx+" "+ly+" A "+parent_arc_r+" "+parent_arc_r+" 0 0 1 "+rx+" "+ry+" Z";
+                    svgatt(box.p, {visibility: "visible", d: draw});
+                } else {
+                    svgatt(box.p, {visibility: "hidden"});
+                }
+            };
+            var box_doubleclick = function(box) {
+                if (edited_box == null || edited_box == box)
+                    return;
+                box_connect_toggle(box, edited_box);
+            };
+            var box_connect_toggle = function(box_a, box_b) {
+                /* Delete if they are already connected */
+                var removed_connection = false;
+                for (var i in box_a.conns) {
+                    var conn = box_a.conns[i];
+                    if (conn.box1 == box_b || conn.box2 == box_b) {
+                        if (conn.ln != null) {
+                            lines.removeChild(conn.ln);
+                            conn.ln = null;
+                        }
+                        box_a.conns.splice(i, 1);
+                        removed_connection = true;
+                        break;
+                    }
+                }
+                for (var i in box_b.conns) {
+                    var conn = box_b.conns[i];
+                    if (conn.box1 == box_a || conn.box2 == box_a) {
+                        if (conn.ln != null) {
+                            lines.removeChild(conn.ln);
+                            conn.ln = null;
+                        }
+                        box_b.conns.splice(i, 1);
+                        removed_connection = true;
+                        break;
+                    }
+                }
+                if (!removed_connection) {
+                    var ln = svgel("line");
+                    lines.appendChild(ln);
+                    var conn = { ln: ln, box1: box_a, box2: box_b };
+                    box_a.conns.push(conn);
+                    box_b.conns.push(conn);
+                }
+                box_update_visual(box_a);
+                box_update_visual(box_b);
+            };
+            var box_moving = null;
+            var box_clickoff = null;
+            var box_start_move = function(box, ev) {
+                if (box_moving != null)
+                    return;
+                box_moving = box;
+                window.addEventListener("mousemove", box_move_step);
+                window.addEventListener("mouseup", box_move_stop);
+                cancel_space_click = true;
+                /* Offset in the box to avoid jumping of the box */
+                box_clickoff = { x: ev.clientX - svg_left - box.x, y: ev.clientY - svg_top - box.y };
+            };
+            var box_move_step = function(ev) {
+                if (box_moving == null)
+                    return;
+                var x = ev.clientX - svg_left, y = ev.clientY - svg_top;
+                box_moving.x = x - box_clickoff.x, box_moving.y = y - box_clickoff.y;
+                box_update_complete(box_moving);
+            };
+            var box_move_stop = function(ev) {
+                window.removeEventListener("mousemove", box_move_step);
+                window.removeEventListener("mouseup", box_move_stop);
+                box_moving = null;
+            };
+            var box_delete = function(box) {
+                while (box.conns.length > 0) {
+                    var conn = box.conns[0];
+                    box_connect_toggle(conn.box1, conn.box2);
+                }
+                svg.removeChild(box.g);
+                for (var i in all_boxes)
+                    if (all_boxes[i] == box)
+                        all_boxes.splice(i, 1);
+            };
+            var edited_box = null;
+            var box_stop_editmode = function() {
+                settings.style.display = "none";
+                settings_name.oninput = null;
+                settings_abstract.onchange = null;
+                settings_child.onchange = null;
+                settings_parent.onchange = null;
+                settings_delete.onclick = null;
+                edited_box = null;
+            };
+            var box_editmode = function(box) {
+                if (edited_box != null) {
+                    edited_box.r.style.stroke = null;
+                    if (edited_box == box) {
+                        box_stop_editmode();
+                        return;
+                    }
+                }
+                /* Start edit mode for given box */
+                box.r.style.stroke = "#06f";
+                edited_box = box;
+                settings.style.display = "block"
+                settings_name.value = box.t.firstChild.textContent;
+                settings_name.oninput = function(ev) {
+                    box.t.firstChild.textContent = settings_name.value;
+                    box_update_complete(box);
+                };
+                settings_abstract.value = box.concrete ? "C" : "A";
+                settings_abstract.onchange = function(ev) {
+                    box.concrete = (settings_abstract.value == "C");
+                    box_update_visual(box);
+                };
+                settings_child.value = box.childstyle;
+                settings_child.onchange = function(ev) {
+                    box.childstyle = settings_child.value;
+                    box_update_visual(box);
+                };
+                settings_parent.value = box.parentstyle;
+                settings_parent.onchange = function(ev) {
+                    box.parentstyle = settings_parent.value;
+                    box_update_visual(box);
+                };
+                settings_delete.onclick = function(ev) {
+                    box_delete(box);
+                    box_stop_editmode();
+                };
+                settings_name.focus();
+                settings_name.select();
+            };
+            
+            /* Click on the empty space to create new boxes */
+            var space_clicked = function(ev) {
+                if (cancel_space_click) {
+                    cancel_space_click = false;
+                    return;
+                }
+                var x = ev.clientX - svg_left, y = ev.clientY - svg_top;
+                var box = create_box("Box name", x, y + 10);
+                box_editmode(box);
+            };
+            svg.addEventListener("click", space_clicked);
+            
+            /* Update SVG size so that it fills the entire screen */
+            var svg_top, svg_left;
+            var update_svg_pos = function() {
+                var bb = svg.getBoundingClientRect();
+                svg_top  = bb.top;
+                svg_left = bb.left;
+            };
+            var fit_screen_size = function() {
+                svg.setAttribute("width", floor(window.innerWidth) + "px");
+                svg.setAttribute("height", floor(window.innerHeight) + "px");
+                update_svg_pos();
+            };
+            window.addEventListener("resize", fit_screen_size);
+            
+            /* SVG subelements can't cancel default action... need to disable it for entire SVG */
+            svg.oncontextmenu = function(ev) { ev.preventDefault(); };
+            
+            /* Export options */
+            var create_exported_svg = function() {
+                /* Find area with elements */
+                var dim = { left: parseInt(svg.getAttribute("width")), right: 0, top: parseInt(svg.getAttribute("height")), bottom: 0 };
+                for (var i in all_boxes) {
+                    var box = all_boxes[i];
+                    var bb = box.r.getBBox();
+                    if (bb.x < dim.left)
+                        dim.left = bb.x;
+                    if (bb.x + bb.width > dim.right)
+                        dim.right = bb.x + bb.width;
+                    if (bb.y < dim.top)
+                        dim.top = bb.y;
+                    if (bb.y + bb.height > dim.bottom)
+                        dim.bottom = bb.y + bb.height;
+                }
+                var pad_area = 10;
+                var translate_x = dim.left - pad_area, translate_y = dim.top - pad_area;
+                var new_w = (dim.right - dim.left) + 2 * pad_area, new_h = (dim.bottom - dim.top) + 2 * pad_area;
+                /* Create new SVG with appropriate size and copy style */
+                var new_svg = svgel("svg", { width: new_w, height: new_h, xmlns: "http://www.w3.org/2000/svg" });
+                for (var i in svg.childNodes) {
+                    if (svg.childNodes[i].tagName == "style") {
+                        new_svg.appendChild(svg.childNodes[i].cloneNode(true));
+                        break;
+                    }
+                }
+                var new_lines = svgel("g");
+                new_svg.appendChild(new_lines);
+                /* Recreate all boxes */
+                var translate_boxes = [];
+                for (var i in all_boxes) {
+                    var box = all_boxes[i];
+                    var new_box = create_box_element(box.t.firstChild.textContent, box.x - translate_x, box.y - translate_y, box.concrete, box.childstyle, box.parentstyle);
+                    translate_boxes[i] = new_box;
+                    new_svg.appendChild(new_box.g);
+                }
+                /* Recreate connections */
+                var old_conns = [];
+                var new_conns = [];
+                for (var i in all_boxes) {
+                    var box = all_boxes[i];
+                    var new_box = translate_boxes[i];
+                    for (var j in box.conns) {
+                        var conn = box.conns[j];
+                        var oci = old_conns.indexOf(conn);
+                        if (oci < 0) {
+                            old_conns.push(conn);
+                            var box2 = (box == conn.box1) ? conn.box2 : conn.box1;
+                            new_box2 = translate_boxes[all_boxes.indexOf(box2)];
+                            var ln = svgel("line");
+                            new_lines.appendChild(ln);
+                            new_conn = { ln: ln, box1: new_box, box2: new_box2 };
+                            new_conns.push(new_conn);
+                            new_box.conns.push(new_conn);
+                        } else {
+                            new_box.conns.push(new_conns[oci]);
+                        }
+                    }
+                }
+                /* Insert temporarily to actual DOM, update all new elements, and remove it again */
+                document.body.appendChild(new_svg);
+                for (var i in all_boxes) {
+                    box_update_complete(translate_boxes[i]);
+                }
+                document.body.removeChild(new_svg);
+                return { w: new_w, h: new_h, data: URL.createObjectURL(new Blob([new_svg.outerHTML], {type: "image/svg+xml;charset=utf-8"})) };
+            };
+            id("export_svg").addEventListener("click", function() {
+                if (all_boxes.length == 0) {
+                    alert("Nothing to export.");
+                    return;
+                }
+                var expsvg = create_exported_svg();
+                var link = document.createElement("a");
+                link.href = expsvg.data;
+                link.download = "feature_model.svg";
+                link.click();
+            });
+            id("export_png").addEventListener("click", function() {
+                if (all_boxes.length == 0) {
+                    alert("Nothing to export.");
+                    return;
+                }
+                var expsvg = create_exported_svg();
+                var canv = document.createElement("canvas");
+                canv.width = expsvg.w;
+                canv.height = expsvg.h;
+                var img = new Image();
+                img.onload = function () {
+                    var ctx = canv.getContext("2d");
+                    ctx.clearRect(0, 0, expsvg.w, expsvg.h);
+                    ctx.drawImage(img, 0, 0);
+                    var link = document.createElement("a");
+                    link.href = canv.toDataURL("image/png");
+                    link.download = "feature_model.png";
+                    link.click();
+                };
+                img.src = expsvg.data;
+            });
+            
+            /* Let's go ! */
+            fit_screen_size();
+            box_stop_editmode();
+        </script>
+    
+</body></html>

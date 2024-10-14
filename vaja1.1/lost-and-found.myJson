@@ -1,0 +1,168 @@
+title = "Lost and Found"
+description = "An application to track lost and found items."
+host = "http://localhost:3001"
+port = "3001"
+
+theme {
+    mode = light
+    primary-color = "#1976D2"
+    secondary-color = "#FF9800"
+    primary-btn-color = "#0D47A1"
+    secondary-btn-color = "#FFC107"
+    warning-btn-color = "#F44336"
+    error-btn-color = "#D32F2F"
+}
+
+layout {
+    showMenu = true
+    showHeader = true
+    showFooter = false
+}
+
+api {
+    base = "http://localhost:3000/"
+    endpoints {
+        get {
+            lostItems = "lost-items"
+            foundItems = "found-items"
+            profile = "profile"
+        }
+        post {
+            reportLost = "report-lost"
+            reportFound = "report-found"
+            login = "login"
+            register = "register"
+        }
+    }
+}
+
+pages {
+    Home {
+        url = "/"
+        title = "Welcome to the Lost and Found Platform"
+        content = """
+            # Welcome to Lost and Found!
+
+            Our platform helps people report and find lost items across various locations. Whether you've lost something precious or found an item and want to return it to its rightful owner, this platform makes it simple and secure to track and manage lost and found items.
+
+            ## Features:
+            * Report lost or found items easily.
+            * Browse lists of reported lost and found items.
+            * Connect with others to return found items to their owners.
+
+            ### How to Get Started:
+            1. Publish a lost item or report a found item.
+            2. Browse lost or found items.
+            3. Manage your profile and keep track of your reports.
+        """
+        quickLinks {
+            view = grid
+            links {
+                ReportLostItem {
+                    link = "/report-lost"
+                    text = "Publish lost item"
+                }
+                ReportFoundItem {
+                    link = "/report-found"
+                    text = "You found something, report here"
+                }
+                ListLostItem {
+                    link = "/lost-items"
+                    text = "Check if someone published the item you found"
+                }
+                ListFoundItem {
+                    link = "/found-items"
+                    text = "Check if someone reported your lost item"
+                }
+            }
+        }
+    }
+    LostItems {
+        header = "Here for Lost Items"
+        url = "/lost-items"
+        data = "lostItems"
+        view = list
+    }
+    FoundItems {
+        header = "Here for Found Items"
+        url = "/found-items"
+        data = "lostItems"
+        view = grid
+    }
+    ReportLost {
+        url = "/report-lost"
+        post = "reportLost"
+    }
+    ReportFound {
+        url = "/report-found"
+        post = "reportFound"
+    }
+    About {
+        url = "/about"
+        title = "About the Lost and Found Application"
+        content = """
+            # About Us
+
+            The Lost and Found application was created to help people recover lost items or return found items with ease. We aim to provide a **simple**, **user-friendly** platform to post details of lost or found objects, categorize them, and keep track of the search and recovery process.
+
+            ## Why Use This App?
+            * Convenient way to report lost or found items.
+            * Easy to browse through categorized lost/found items.
+            * Secure platform to ensure privacy and protection of personal information.
+
+            ## How It Works:
+            1. **Report Items:** Lost an item or found something? Post the details in just a few steps.
+            2. **Browse Listings:** Browse through a categorized list of lost and found items to find a match.
+            3. **Connect with Owners:** Once you find a match, contact the item owner to return the item.
+
+            Join us in making the world a better place, where lost things can find their way back home!
+        """
+    }
+}
+
+components {
+    pop-ups {
+        error {
+            show-header = true
+            close-icon = true
+            close-button-side = right
+        }
+        confirmation {
+            show-header = true
+            close-icon = true
+        }
+        alert {
+            show-header = true
+            close-icon = true
+            close-button-side = right
+            duration = "5000"
+        }
+    }
+    modals { 
+        profile {
+            show-header = true
+            allow-deleteProfile = false
+            show-dummy-image = true
+        }
+    }
+    menu {
+        show-logo = true
+        type = sidebar
+    }
+    footer {
+        background-color = "#f5f5f5"
+        height = "100px"
+        content = """
+            # Footer Content
+
+            * Contact Us: [info@lostandfound.com](mailto:info@lostandfound.com)
+            * About Us
+            * Privacy Policy
+            * Terms of Service
+
+            Follow us on social media:
+            * Twitter: [@LostAndFoundApp](link:"https://twitter.com/LostAndFoundApp")
+            * Facebook: [Lost and Found Platform](link: "https://twitter.com/LostAndFoundApp")
+        """
+    }
+}

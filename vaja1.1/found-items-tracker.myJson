@@ -1,0 +1,147 @@
+title = "Found Items Tracker"
+description = "A platform for reporting and managing found items."
+host = "http://localhost:3002"
+port = "3002"
+
+theme {
+    mode = dark
+    primary-color = "#4CAF50"
+    secondary-color = "#FFC107"
+    primary-btn-color = "#388E3C"
+    secondary-btn-color = "#FF9800"
+    warning-btn-color = "#FF5722"
+    error-btn-color = "#D32F2F"
+}
+
+layout {
+    showMenu = true
+    showHeader = true
+    showFooter = true
+}
+
+api {
+    base = "http://localhost:3000/"
+    endpoints {
+        get {
+            lostItems = "lost-items"
+            foundItems = "found-items"
+            profile = "profile"
+        }
+        post {
+            reportLost = "report-lost"
+            reportFound = "report-found"
+            login = "login"
+            register = "register"
+        }
+    }
+}
+
+
+pages {
+    Home {
+        url = "/"
+        title = "Welcome to the Found Items Tracker"
+        content = """
+            # Found Items Tracker
+
+            This platform assists individuals in reporting and claiming found items, ensuring that misplaced possessions can be returned to their rightful owners.
+
+            ## Key Features:
+            * Report found items quickly and easily.
+            * Browse reported found items by category and location.
+            * Connect with individuals looking for their lost items.
+
+            ### Get Started:
+            1. Report a found item.
+            2. Browse items that have been reported as lost.
+            3. Contact item owners directly to return items.
+        """
+        quickLinks {
+            view = list
+            links {
+                ReportFoundItem {
+                    link = "/report-found"
+                    text = "Report a Found Item"
+                }
+                ViewLostItems {
+                    link = "/lost-items"
+                    text = "View Reported Lost Items"
+                }
+                UserProfile {
+                    link = "/profile"
+                    text = "View Your Profile"
+                }
+            }
+        }
+    }
+    FoundItems {
+        url = "/found-items"
+        view = table
+    }
+    ReportFound {
+        data = "reportFound"
+        view = table
+    }
+    About {
+        url = "/about"
+        title = "About Found Items Tracker"
+        content = """
+            # About Us
+
+            The Found Items Tracker was created to facilitate the process of reporting and reclaiming lost belongings. Our aim is to provide a seamless and user-friendly experience for individuals looking to return lost items or report what they have found.
+
+            ## Why Choose Us?
+            * Quick and straightforward reporting process.
+            * Categorized listings for easy browsing.
+            * Secure and user-friendly interface.
+
+            Join our community in helping lost items find their way home!
+        """
+    }
+}
+
+components {
+    pop-ups {
+        error {
+            show-header = true
+            close-icon = true
+            close-button-side = left
+        }
+        confirmation {
+            show-header = true
+            close-icon = false
+        }
+        alert {
+            show-header = true
+            close-icon = true
+            close-button-side = left
+            duration = "3000"
+        }
+    }
+    modals { 
+        profile {
+            show-header = true
+            allow-deleteProfile = false
+            show-dummy-image = true
+        }
+    }
+    menu {
+        showLogo = false
+        type = sidebar
+    }
+    footer {
+        background-color = #e0e0e0
+        height = 80px
+        content = """
+            # Footer Information
+
+            * Get in touch: [contact@founditemstracker.com](mailto:contact@founditemstracker.com)
+            * Terms of Use
+            * Privacy Policy
+
+            Follow us on social media:
+            * Instagram: [@FoundItemsTracker](link:https://instagram.com/FoundItemsTracker)
+            * LinkedIn: [Found Items Tracker](link:https://linkedin.com/company/found-item-tracke)
+        """
+    }
+}
