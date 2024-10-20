@@ -4,7 +4,7 @@ import Item from '../models/Item';
 // Create a new item
 export const createItem = async (req: Request, res: Response) => {
     try {
-
+        req.body.email = req.headers.email;
         const newItem = new Item(req.body);
         const savedItem = await newItem.save();
         res.status(201).json(savedItem);
@@ -16,9 +16,7 @@ export const createItem = async (req: Request, res: Response) => {
 
 export const listItems = async (req: Request, res: Response) => {
     try {
-        console.log(19);
         const items = await Item.find();
-        console.log(20);
         res.status(200).json(items);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -41,12 +39,12 @@ export const getItem = async (req: Request, res: Response) => {
 
 export const updateItem = async (req: Request, res: Response) => {
     try {
-        const { email } = req.body;
+        const { email } = req.headers;
         const { _id } = req.params;
 
         req.body.lastUpdatedAt = new Date();
 
-        const updatedItem = await Item.findOneAndUpdate({_id, email}, req.body, {
+        const updatedItem = await Item.findOneAndUpdate({_id: _id, email: email}, req.body, {
             new: true,
             runValidators: true,
         });
@@ -63,7 +61,7 @@ export const updateItem = async (req: Request, res: Response) => {
 export const deleteItem = async (req: Request, res: Response) => {
     try {
         const { _id } = req.params;
-        const { email } = req.body;
+        const { email } = req.headers;
 
         const item = await Item.findById({_id, email});
 
@@ -77,7 +75,7 @@ export const deleteItem = async (req: Request, res: Response) => {
             return;
         }
 
-        const deletedItem = await Item.findByIdAndDelete(_id);
+        const deletedItem = await Item.findOneAndDelete({_id, email});
         if (!deletedItem) {
             res.status(404).json({ error: 'Item not found' });
             return;

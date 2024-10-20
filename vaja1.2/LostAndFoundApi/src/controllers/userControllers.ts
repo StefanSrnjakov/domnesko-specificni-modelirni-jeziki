@@ -22,8 +22,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const getUser = async (req: Request, res: Response) => {
   try {
-    const { _id, email } = req.body;
-    console.log(_id, email);
+    const { _id, email } = req.headers;
     const users = await User.find({ _id, email });
     res.status(200).json(users);
   } catch (error) {
