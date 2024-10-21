@@ -1,0 +1,119 @@
+SportBooking ::= 
+    "name:" Name
+    "title:" Title
+    "description:" Description
+    "port:" Port
+    "components:" Components
+    "api:" API
+    "show:" Show
+    "Render:" Render
+
+Name ::= string
+Title ::= string
+Description ::= string
+Port ::= integer
+
+Components ::= 
+    Component+
+    
+Component ::= 
+    "- title:" string
+    "- url:" string
+    "- menu:" ( "yes" | "no" )
+
+API ::= 
+    "- base:" string
+    "- endpoints:" Endpoints
+
+Endpoints ::= 
+    Endpoint+
+
+Endpoint ::= 
+    "- name:" string
+    "- url:" string
+
+Show ::= 
+    "navmenu:" NavMenu
+    "header:" Header
+    "toolbar_menu:" ToolbarMenu
+    "footer:" Footer
+
+NavMenu ::= 
+    "enabled:" ( "yes" | "no" )
+    "layout:" Layout
+    "styles:" Style+
+
+Layout ::= 
+    Position+
+
+Position ::= 
+    "- position:" string
+
+Style ::= 
+    "- color:" hexColor |
+    "- text_color:" hexColor | 
+    "- font:" string | 
+    "- background_color:" hexColor | 
+    "- height:" string | 
+    "- button_color:" hexColor | 
+    "- alignment:" string 
+
+Header ::= 
+    "enabled:" ( "yes" | "no" )
+    "styles:" Style+
+
+ToolbarMenu ::= 
+    "enabled:" ( "yes" | "no" )
+    "layout:" Layout
+    "styles:" Style+
+
+Footer ::= 
+    "enabled:" ( "yes" | "no" )
+    "styles:" Style+
+    "content:" Content
+
+Content ::= 
+    ContentItem+
+
+ContentItem ::= 
+    "- text:" string 
+    "- links:" Link+
+
+Link ::= 
+    "- about_us:" string 
+    "- contact:" string
+
+Render ::= 
+    RenderSection+
+
+RenderSection ::= 
+    Identifier "=>"
+    Block
+
+Identifier ::= 
+    string
+
+Block ::= 
+    "#" string
+    TextTable+
+
+TextTable ::= 
+    TextHeader
+    TableRows
+
+TextHeader ::= 
+    "| " string " |" string " |" string " |" string " |"
+  
+TableRows ::= 
+    Row+
+
+Row ::= 
+    "| " RowData " |" RowData " |" RowData " |" RowData " |"
+
+RowData ::= 
+    "$api(" string ":" string)" | string
+
+hexColor ::= 
+    "#" (hexDigit hexDigit hexDigit hexDigit hexDigit hexDigit | hexDigit hexDigit hexDigit)
+    
+
