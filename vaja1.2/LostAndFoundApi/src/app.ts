@@ -3,11 +3,13 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import itemRoutes from './routes/itemsRoutes';
+import cors from 'cors';
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 // Middleware for parsing JSON
 app.use(express.json());
 
