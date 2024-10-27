@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUser, getUser, login } from '../controllers/userControllers';
+import { createUser, getUser, login, deleteUser } from '../controllers/userControllers';
 import { auth } from '../middleware/auth';
 
 const router = Router();
@@ -12,5 +12,6 @@ router.post('/users/logout', (req, res) => {
     res.send('Logout');
     }
 );
+router.delete('/users', auth, deleteUser);
 
 export default router;
