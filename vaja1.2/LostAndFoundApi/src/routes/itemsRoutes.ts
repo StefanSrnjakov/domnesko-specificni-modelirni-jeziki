@@ -4,8 +4,8 @@ import { createItem, deleteItem, getItem, listItems, updateItem } from '../contr
 
 const router = Router();
 
-router.get('/items', auth, listItems );
-router.get('/items/:_id', auth, getItem);
+router.get('/items', listItems );
+router.get('/items/:_id', getItem);
 router.post('/items', auth, createItem);
 router.put('/items/:_id', auth, updateItem);
 router.delete('/items/:_id', auth, deleteItem);

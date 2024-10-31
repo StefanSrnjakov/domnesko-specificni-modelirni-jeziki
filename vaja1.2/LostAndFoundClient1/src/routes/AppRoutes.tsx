@@ -12,6 +12,11 @@ import Navbar from '../components/layout/NavBar';
 import Footer from '../components/layout/Footer';
 import About from '../pages/About';
 import SessionExpired from '../pages/SessionExpired';
+import LostItems from '../pages/LostItems';
+import FoundItems from '../pages/FoundItems';
+import MyItems from '../pages/MyItems';
+import AddItem from '../pages/AddItem';
+
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const context = useAuthContext();
@@ -22,7 +27,13 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   if (context.user?.exp && context.user.exp < Date.now() / 1000) {
     return <Navigate to="/session-expired" />;
   }
-  return context ? children : <Navigate to="/login" />;
+  if (!context) {
+    return <Navigate to="/login" />;
+  }
+  if (!context.user) {
+    return <Navigate to="/login" />;
+  }
+  return children;
 };
 
 interface AppRoutesProps {
@@ -54,6 +65,38 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ toggleTheme, mode }) => {
                 element={
                   <PrivateRoute>
                     <Profile />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/lost-items"
+                element={
+                  <PrivateRoute>
+                    <LostItems />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/found-items"
+                element={
+                  <PrivateRoute>
+                    <FoundItems />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/my-items"
+                element={
+                  <PrivateRoute>
+                    <MyItems />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/add-item"
+                element={
+                  <PrivateRoute>
+                    <AddItem />
                   </PrivateRoute>
                 }
               />

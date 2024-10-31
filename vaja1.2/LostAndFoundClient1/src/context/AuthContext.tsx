@@ -9,7 +9,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserAuth | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true); // Start with loading true
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const decodedUser = tokenUtils.decodeToken(token);
       setUser(decodedUser);
     }
+    setLoading(false); // Set loading to false after checking for user data
   }, []);
 
   const login = async (email: string, password: string) => {
@@ -42,11 +43,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     setUser(null);
-    tokenUtils.removeToken(); // Remove the token from storage
-    navigate('/login'); // Redirect to login page after logout
+    tokenUtils.removeToken();
+    navigate('/login');
   };
 
-  const isAuthenticated = !!user; // Boolean to indicate if the user is authenticated
+  const isAuthenticated = !!user;
 
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, login, logout, loading, error }}>

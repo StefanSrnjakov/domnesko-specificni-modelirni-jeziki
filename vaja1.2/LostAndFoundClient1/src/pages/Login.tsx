@@ -10,7 +10,7 @@ const Login: React.FC = () => {
   const [localError, setLocalError] = useState<string | null>(null);
 
   const handleLogin = async () => {
-    try {
+    try { 
       setLocalError(null);
       await login(email, password);
     } catch (err) {

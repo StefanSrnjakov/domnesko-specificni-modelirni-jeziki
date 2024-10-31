@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
         </Typography>
         <Button
           component={Link}
-          to="/report"
+          to="/add-item"
           variant="contained"
           color="primary"
           size="large"
@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image={`https://via.placeholder.com/300x140?text=${feature.title}`}
+                image={`lost-item-home${index + 1}.png`}
                 alt={feature.title}
               />
               <CardContent>
