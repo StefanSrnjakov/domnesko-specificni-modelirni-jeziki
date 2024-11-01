@@ -21,6 +21,40 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
+export const updateUser = async (req: Request, res: Response) => {
+  try {
+    const userId = req.headers._id as string;
+    const { name, birthdate, surname } = req.body;
+
+    if (!userId) {
+      res.status(400).json({ error: 'User ID is required in headers' });
+      return;
+    }
+
+    // Build the update object by excluding fields with null values
+    const updateData: { [key: string]: any } = {};
+    if (name !== null) updateData.name = name;
+    if (birthdate !== null) updateData.birthdate = birthdate;
+    if (surname !== null) updateData.surname = surname;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedUser) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
+
+    res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ error: 'Failed to update user' });
+  }
+};
+
 export const getUser = async (req: Request, res: Response) => {
   try {
     const { _id, email } = req.headers;

@@ -65,4 +65,17 @@ export const authService = {
   logout: () => {
     tokenUtils.removeToken();
   },
+  updateUserProfile: async (user: User): Promise<void> => {
+    try {
+      const token = tokenUtils.getToken();
+      await axios.put(`${API_URL}/users`, user, {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+    } catch (error: any) {
+      console.error('Update user profile error:', error);
+      throw new Error('Failed to update user profile.');
+    }
+  }
 };

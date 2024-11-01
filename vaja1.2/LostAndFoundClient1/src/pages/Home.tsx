@@ -1,8 +1,31 @@
-import React from 'react';
-import { Container, Typography, Box, Grid, Button, Card, CardMedia, CardContent } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Container, Typography, Box, Grid, Button, CardContent, CardMedia, Card, List, ListItem, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Item } from '../models/Item';
+import { itemService } from '../services/itemService';
+import ItemCard from '../components/item/ItemCard';
 
 const HomePage: React.FC = () => {
+  const [items, setItems] = useState<Item[]>([]);
+  const [popularCategories, setPopularCategories] = useState<string[]>(['Electronics', 'Wallets', 'Keys']);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getItems = async () => {
+      setLoading(true);
+      try {
+        const { items: fetchedItems } = await itemService.fetchLostItems({});
+        setItems(fetchedItems.slice(0, 4)); // Limit to 4 items
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getItems();
+  }, []);
+
   return (
     <Container sx={{ mt: 8, mb: 8 }}>
       {/* Hero Section */}
@@ -29,11 +52,11 @@ const HomePage: React.FC = () => {
       <Typography variant="h5" color="primary" align="center" gutterBottom>
         How It Works
       </Typography>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
+      <Grid container spacing={3} sx={{ mb: 8 }}>
         {[
           { title: 'Report Lost Items', description: 'Easily create a report for your lost item with details and location.' },
           { title: 'Find Lost Items', description: 'Browse the list of found items and filter by location or category.' },
-          { title: 'Get Notified', description: 'Receive updates and alerts when a similar item is reported as found.' },
+          { title: 'Track Your Reports', description: 'View and manage items you have reported, including updates from other users.' },
         ].map((feature, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Card sx={{ height: '100%' }}>
@@ -55,32 +78,24 @@ const HomePage: React.FC = () => {
           </Grid>
         ))}
       </Grid>
+        
 
       {/* Explore More Section */}
       <Typography variant="h5" color="primary" align="center" gutterBottom>
         Featured Lost and Found Items
       </Typography>
       <Grid container spacing={3}>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://via.placeholder.com/200x200?text=Lost+Item"
-                alt="Lost Item"
-              />
-              <CardContent>
-                <Typography variant="subtitle1" color="text.primary">
-                  Item Name {index + 1}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Short description of the lost item. Reported on: 2024-10-27
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
+        {loading ? (
+          <Typography variant="body1" color="text.secondary" align="center">
+            Loading items...
+          </Typography>
+        ) : (
+          items.map((item) => (
+            <Grid item xs={12} sm={6} md={3} key={item._id}>
+              <ItemCard item={item} strict={true} />
+            </Grid>
+          ))
+        )}
       </Grid>
     </Container>
   );

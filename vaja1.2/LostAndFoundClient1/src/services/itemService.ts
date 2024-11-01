@@ -1,14 +1,12 @@
 // src/services/authService.ts
 import axios from 'axios'; // You can replace axios with fetch if you prefer
 import { tokenUtils } from '../utils/tokenUtils'; // Assuming you have token utilities
-import { User } from '../models/Profile';
-import { LoginResponse, RegisterResponse } from '../types/apiResponses';
 
 // Define the base URL of your API (e.g., from environment variables)
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
 export const itemService = {
-    addItem: async (itemData: any): Promise<any> => {
+    addItem: async (itemData: FormData): Promise<any> => {
         try {
             const token = tokenUtils.getToken();
             const response = await axios.post(`${API_URL}/items`, itemData, {
@@ -22,9 +20,34 @@ export const itemService = {
             throw new Error('Failed to add item. Please try again.');
         }
     },
-    fetchItems: async (): Promise<any> => {
+    fetchFoundItems: async (filters: any): Promise<any> => {
         try {
-            const response = await axios.get(`${API_URL}/items`);
+            filters.type = 'found';
+            const response = await axios.get(`${API_URL}/items?filters=${JSON.stringify(filters)}`);
+            return response.data;
+        } catch (error: any) {
+            console.error('Fetch items error:', error);
+            throw new Error('Failed to fetch items.');
+        }
+    },
+    fetchLostItems: async (filters: any): Promise<any> => {
+        try {
+            filters.type = 'lost';
+            const response = await axios.get(`${API_URL}/items?filters=${JSON.stringify(filters)}`);
+            return response.data;
+        } catch (error: any) {
+            console.error('Fetch items error:', error);
+            throw new Error('Failed to fetch items.');
+        }
+    },
+    fetchItemsByUser: async (filters: any): Promise<any> => {
+        try {
+            const token = tokenUtils.getToken();
+            const response = await axios.get(`${API_URL}/my-items`, {
+                headers: {
+                    Authorization: `${token}`,
+                },
+            });
             return response.data;
         } catch (error: any) {
             console.error('Fetch items error:', error);
@@ -53,7 +76,7 @@ export const itemService = {
             throw new Error('Failed to delete item.');
         }
     },
-    updateItem: async (itemId: string, itemData: any): Promise<any> => {
+    updateItem: async (itemId: string, itemData: FormData): Promise<any> => {
         try {
             const token = tokenUtils.getToken();
             const response = await axios.put(`${API_URL}/items/${itemId}`, itemData, {
@@ -67,4 +90,18 @@ export const itemService = {
             throw new Error('Failed to update item.');
         }
     },
+    reportItem: async (itemId: string): Promise<any> => {
+        try {
+            const token = tokenUtils.getToken();
+            const response = await axios.put(`${API_URL}/report/${itemId}`, {}, {
+                headers: {
+                    Authorization: `${token}`,
+                },
+            });
+            return response.data;
+        } catch (error: any) {
+            console.error('Report item error:', error);
+            throw new Error('Failed to report item.');
+        }
+    }
 };

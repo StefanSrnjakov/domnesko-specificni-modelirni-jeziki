@@ -1,38 +1,53 @@
 // src/pages/AddItem.tsx
 import React, { useState } from 'react';
-import { Container, Box, Button, Stepper, Step, StepLabel, Typography, Paper, Fade } from '@mui/material';
+import { useAuthContext } from '../context/AuthContext';
+import { Container, Stepper, Step, StepLabel, Typography, Paper, Fade } from '@mui/material';
 import ItemTypeStep from '../components/addItem/ItemTypeStep';
 import ItemDetailsStep from '../components/addItem/ItemDetailsStep';
 import CommunicationStep from '../components/addItem/CommunicationStep';
-import ItemAdded from '../components/addItem/ItemAdded';
+import ImageUploadStep from '../components/addItem/ImageUploadStep';
+import ItemAdded from '../components/addItem/ItemAddedStep';
 import { itemService } from '../services/itemService';
-import { ItemInput } from '../models/Item';
+import { Item } from '../models/Item';
 
-const steps = ['Select Type', 'Item Details', 'Contact Information', 'Submit'];
+
+const steps = ['Select Type', 'Item Details', 'Contact Information', 'Upload Image', 'Submit'];
 
 const AddItem: React.FC = () => {
+    const context = useAuthContext();
     const [activeStep, setActiveStep] = useState(0);
-    const [itemInput, setItemInput] = useState<ItemInput>({
+    const [itemInput, setItemInput] = useState<Item>({
+        _id: '',
         name: '',
         type: 'lost',
         description: '',
         category: '',
         dateFound: null,
         dateLost: null,
+        publishedAt: null, 
         locationFound: '',
         status: 'listed',
-        email: null,
+        email: context.user?.email || null,
         number: null,
         image: null,
+        lastUpdatedAt: null,
+        reports: []
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
 
-    const handleNext = () => setActiveStep((prev) => prev + 1);
+    const handleNext = () => {
+        if (activeStep === steps.length - 2) { // Second-to-last step, now ready to submit
+            handleSubmit();
+        } else {
+            setActiveStep((prev) => prev + 1);
+        }
+    };
+
     const handleBack = () => setActiveStep((prev) => prev - 1);
 
-    const handleInputChange = (field: keyof ItemInput, value: any) => {
+    const handleInputChange = (field: keyof Item, value: any) => {
         setItemInput((prev) => ({
             ...prev,
             [field]: value,
@@ -42,17 +57,25 @@ const AddItem: React.FC = () => {
     const handleSubmit = async () => {
         setLoading(true);
         setError(null);
+
+        // Create FormData and append each field
+        const formData = new FormData();
+        Object.entries(itemInput).forEach(([key, value]) => {
+            if (value !== null) {
+                formData.append(key, value);
+            }
+        });
+
         try {
-            await itemService.addItem(itemInput);
+            await itemService.addItem(formData); // Send FormData instead of JSON
             setSuccess(true);
         } catch (error: any) {
             setError(error.message || 'Submission failed. Please try again.');
         } finally {
             setLoading(false);
-            setActiveStep(3); // Go to the final step to display result
+            setActiveStep(steps.length - 1); // Go to the final step to display result
         }
     };
-
     const handleRetry = () => {
         setError(null);
         setLoading(false);
@@ -75,6 +98,10 @@ const AddItem: React.FC = () => {
             email: null,
             number: null,
             image: null,
+            publishedAt: null,
+            lastUpdatedAt: null,
+            _id: '',
+            reports: []
         });
     };
 
@@ -123,7 +150,7 @@ const AddItem: React.FC = () => {
                         {activeStep === 2 && (
                             <CommunicationStep
                                 onBack={handleBack}
-                                onNext={handleSubmit}
+                                onNext={handleNext}
                                 itemInput={itemInput}
                                 onInputChange={handleInputChange}
                             />
@@ -133,6 +160,18 @@ const AddItem: React.FC = () => {
                 <Fade in={activeStep === 3} mountOnEnter unmountOnExit>
                     <div>
                         {activeStep === 3 && (
+                            <ImageUploadStep
+                                onBack={handleBack}
+                                onNext={handleNext}
+                                onInputChange={handleInputChange}
+                                itemInput={itemInput}
+                            />
+                        )}
+                    </div>
+                </Fade>
+                <Fade in={activeStep === 4} mountOnEnter unmountOnExit>
+                    <div>
+                        {activeStep === 4 && (
                             <ItemAdded
                                 status={loading ? 'loading' : success ? 'success' : 'error'}
                                 errorMessage={error}

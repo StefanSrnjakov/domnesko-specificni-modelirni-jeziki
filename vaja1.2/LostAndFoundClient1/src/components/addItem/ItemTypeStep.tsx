@@ -2,12 +2,12 @@
 import React from 'react';
 import { Box, Button, Typography, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Search, CheckCircle } from '@mui/icons-material';
-import { ItemInput } from '../../models/Item';
+import { Item } from '../../models/Item';
 
 interface ItemTypeStepProps {
     onNext: () => void;
-    itemInput: ItemInput;
-    onInputChange: (field: keyof ItemInput, value: any) => void;
+    itemInput: Item;
+    onInputChange: (field: keyof Item, value: any) => void;
 }
 
 const ItemTypeStep: React.FC<ItemTypeStepProps> = ({ onNext, itemInput, onInputChange }) => {

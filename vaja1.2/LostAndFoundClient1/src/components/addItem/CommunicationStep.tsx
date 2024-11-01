@@ -1,28 +1,20 @@
 // src/pages/steps/CommunicationStep.tsx
 import React from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { ItemInput } from '../../models/Item';
+import { Item } from '../../models/Item';
 
 interface CommunicationStepProps {
     onBack: () => void;
     onNext: () => void;
-    onInputChange: (field: keyof ItemInput, value: any) => void;
-    itemInput: ItemInput;
+    onInputChange: (field: keyof Item, value: any) => void;
+    itemInput: Item;
 }
 
 const CommunicationStep: React.FC<CommunicationStepProps> = ({ onBack, onNext, itemInput, onInputChange }) => {
-    const isSubmitDisabled = !itemInput.email && !itemInput.number; // Ensure at least one field is filled
 
     return (
         <Box>
             <Typography variant="h6">Preferred Contact Information</Typography>
-            <TextField
-                label="Email"
-                value={itemInput.email || ''}
-                onChange={(e) => onInputChange('email', e.target.value)}
-                fullWidth
-                margin="normal"
-            />
             <TextField
                 label="Phone Number"
                 value={itemInput.number || ''}
@@ -31,16 +23,15 @@ const CommunicationStep: React.FC<CommunicationStepProps> = ({ onBack, onNext, i
                 margin="normal"
             />
             <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
-                Please provide at least one contact method.
+                Your user email will be used for communication by default. If you prefer to be contacted by phone, please provide your phone number.
             </Typography>
             <Box display="flex" justifyContent="space-between" mt={3}>
                 <Button onClick={onBack}>Back</Button>
                 <Button
                     variant="contained"
                     onClick={onNext}
-                    disabled={isSubmitDisabled} // Disable if both fields are empty
                 >
-                    Submit
+                    Next
                 </Button>
             </Box>
         </Box>

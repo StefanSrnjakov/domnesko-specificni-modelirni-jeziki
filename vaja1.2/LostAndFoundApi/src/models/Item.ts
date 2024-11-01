@@ -13,6 +13,8 @@ export interface IItem extends Document {
     status: 'listed' | 'claimed';
     email: string | null;
     number: string | null;
+    image: string | null;
+    reports: string[];
 }
 
 const ItemSchema: Schema = new Schema({
@@ -27,7 +29,9 @@ const ItemSchema: Schema = new Schema({
     locationFound: { type: String, required: true },
     status: { type: String, required: true, default: 'listed', enum: ['listed', 'claimed']},
     email: { type: String },
-    number: { type: String }
+    number: { type: String },
+    image: { type: String },
+    reports: { type: [String], default: [] }
 });
 
 

@@ -2,12 +2,12 @@
 import React from 'react';
 import { Box, Button, TextField, MenuItem, Typography, Autocomplete } from '@mui/material';
 import { CATEGORIES, LOCATIONS } from '../../constants/common';
-import { ItemInput } from '../../models/Item';
+import { Item } from '../../models/Item';
 
 interface ItemDetailsStepProps {
     onNext: () => void;
-    itemInput: ItemInput;
-    onInputChange: (field: keyof ItemInput, value: any) => void;
+    itemInput: Item;
+    onInputChange: (field: keyof Item, value: any) => void;
 }
 
 const ItemDetailsStep: React.FC<ItemDetailsStepProps> = ({ onNext, itemInput, onInputChange }) => {

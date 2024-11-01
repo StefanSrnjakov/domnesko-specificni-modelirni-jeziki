@@ -1,88 +1,150 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, Grid, CircularProgress, Button, Chip, CardActions, Container } from '@mui/material';
+import { Box, Typography, CircularProgress, Container, Grid, TextField, Autocomplete, Pagination, Divider, Collapse, IconButton } from '@mui/material';
 import { itemService } from '../services/itemService';
 import { Item } from '../models/Item';
+import FoundItemCard from '../components/item/ItemCard';
+import { CATEGORIES, LOCATIONS } from '../constants/common';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CategoryIcon from '@mui/icons-material/Category';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const FoundItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);
     const [loading, setLoading] = useState(true);
+    const [locations, setLocations] = useState<string[]>([]);
+    const [categories, setCategories] = useState<string[]>([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [filtersOpen, setFiltersOpen] = useState(false);
 
     useEffect(() => {
         const getItems = async () => {
+            setLoading(true);
             try {
-                const allItems = await itemService.fetchItems();
-                const foundItems = allItems.filter((item: Item) => item.type === 'found');
-                setItems(foundItems);
+                const { items: fetchedItems, totalPages } = await itemService.fetchFoundItems({
+                    locations,
+                    categories,
+                    page,
+                });
+                setItems(fetchedItems);
+                setTotalPages(totalPages);
             } catch (error) {
                 console.error("Error fetching items:", error);
             } finally {
                 setLoading(false);
             }
         };
-
         getItems();
-    }, []);
+    }, [locations, categories, page]);
 
     return (
         <Container maxWidth="lg" sx={{ mt: 8, py: 4, boxShadow: 3, borderRadius: 2, bgcolor: 'background.paper' }}>
+            {/* Page Title */}
             <Typography variant="h4" align="center" gutterBottom>
                 Found Items
             </Typography>
+            <Typography variant="subtitle1" align="center" color="text.secondary" sx={{ mb: 4 }}>
+                Browse through items that have been found and reported. Use filters to refine your search.
+            </Typography>
 
+            {/* Collapsible Filter Section */}
+            <Box textAlign="center" mb={3}>
+                <IconButton onClick={() => setFiltersOpen(!filtersOpen)} aria-label="toggle filters">
+                    <FilterListIcon color="primary" />
+                    {filtersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                </IconButton>
+                <Typography variant="h6" color="text.secondary" display="inline" sx={{ ml: 1 }}>
+                    Filters
+                </Typography>
+            </Box>
+
+            <Collapse in={filtersOpen}>
+                <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
+                    <Autocomplete
+                        multiple
+                        options={LOCATIONS}
+                        value={locations}
+                        onChange={(event, newValue) => setLocations(newValue)}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Filter by Location"
+                                variant="outlined"
+                                InputProps={{
+                                    ...params.InputProps,
+                                    startAdornment: (
+                                        <>
+                                            <LocationOnIcon sx={{ color: 'primary.main', mr: 1 }} />
+                                            {params.InputProps.startAdornment}
+                                        </>
+                                    ),
+                                }}
+                            />
+                        )}
+                        sx={{ minWidth: 200, maxWidth: 300 }}
+                    />
+                    <Autocomplete
+                        multiple
+                        options={CATEGORIES}
+                        value={categories}
+                        onChange={(event, newValue) => setCategories(newValue)}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Filter by Category"
+                                variant="outlined"
+                                InputProps={{
+                                    ...params.InputProps,
+                                    startAdornment: (
+                                        <>
+                                            <CategoryIcon sx={{ color: 'secondary.main', mr: 1 }} />
+                                            {params.InputProps.startAdornment}
+                                        </>
+                                    ),
+                                }}
+                            />
+                        )}
+                        sx={{ minWidth: 200, maxWidth: 300 }}
+                    />
+                </Box>
+            </Collapse>
+
+            {/* Display Count and Instructions */}
+            {!loading && (
+                <Box textAlign="center" color="text.secondary" mb={4}>
+                    <Typography variant="body1">
+                        Showing {items.length} items{totalPages > 1 && ` on page ${page} of ${totalPages}`}
+                    </Typography>
+                </Box>
+            )}
+
+            {/* Items Grid */}
             {loading ? (
                 <Box display="flex" justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
                     <CircularProgress />
                 </Box>
             ) : (
-                <Grid container spacing={4}>
-                    {items.map((item) => (
-                        <Grid item xs={12} sm={6} md={4} key={item._id}>
-                            <Card sx={{ maxWidth: 345, boxShadow: '0px 8px 16px rgba(0,0,0,0.15)', borderRadius: 3 }}>
-                                <CardMedia
-                                    component="img"
-                                    height="180"
-                                    image="https://via.placeholder.com/300" // Larger placeholder image
-                                    alt={item.name}
-                                    sx={{ borderTopLeftRadius: 12, borderTopRightRadius: 12 }}
-                                />
-                                <CardContent>
-                                    <Typography variant="h6" component="div" color="primary">
-                                        {item.name}
-                                    </Typography>
-                                    <Chip label={item.category} color="secondary" size="small" sx={{ mt: 1, mb: 1 }} />
-                                    <Typography variant="body2" color="text.secondary" paragraph>
-                                        {item.description}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        <strong>Location:</strong> {item.locationFound}
-                                    </Typography>
-                                    {item.dateFound && (
-                                        <Typography variant="body2" color="text.secondary">
-                                            <strong>Date Found:</strong> {new Date(item.dateFound).toLocaleDateString()}
-                                        </Typography>
-                                    )}
-                                </CardContent>
-                                <CardActions sx={{ justifyContent: 'space-between', padding: 2 }}>
-                                    {item.status === 'listed' ? (
-                                        <Chip label="Available" color="success" variant="outlined" />
-                                    ) : (
-                                        <Chip label="Claimed" color="default" variant="outlined" />
-                                    )}
-                                    {item.email || item.number ? (
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            size="small"
-                                            onClick={() => window.location.href = item.email ? `mailto:${item.email}` : `tel:${item.number}`}
-                                        >
-                                            Contact
-                                        </Button>
-                                    ) : null}
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
+                <>
+                    <Grid container spacing={4}>
+                        {items.map((item) => (
+                            <Grid item xs={12} sm={6} md={4} key={item._id}>
+                                <FoundItemCard item={item} />
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    {/* Pagination Control */}
+                    <Box display="flex" justifyContent="center" mt={6}>
+                        <Pagination
+                            count={totalPages}
+                            page={page}
+                            onChange={(event, value) => setPage(value)}
+                            color="primary"
+                        />
+                    </Box>
+                </>
             )}
         </Container>
     );
