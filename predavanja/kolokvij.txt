@@ -1,0 +1,30 @@
+EBNF za kolokvij
+Esejski tip nalog
+
+nastejte 7 faz zivljenskega cikla dsljev/
+ - odlocitev, analiza, nacrt, impl, tesst... 
+
+kaj je anmen domenske analize? 
+
+ - obseg domene, domenski domeni
+
+Kaj je domena
+ - 
+Vrste lastnosti v diagramu lastnosti angl feature diagram
+ - 
+
+Nastejte odlocitvene vzorce pri razvoju dsljev.
+ - 
+V orodju MPS predstavitev koncepta naredimo z? 
+ - editor-jem
+Za naslednji jezik poda z ebnf zapisite dva dazlicna primera programov za eno osebo in za dve osebe
+ - 
+
+Zgoraj podano sintaksno drevo dekoriraj +++++++
+
+Za program x zapisite abstraktno sintaksno drevo
+
+Za spodnjo bnf grapatiko zapisite pretvorbo v ebnf uporabite samo neterminala p in c
+
+
+Kako se v textgen imenuje metoda bla bla bla 
