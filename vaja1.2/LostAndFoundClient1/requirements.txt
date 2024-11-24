@@ -89,7 +89,8 @@ pages {
     FoundItems {
         header = "Here for Found Items"
         description = "
-            Brow
+            Browse through items that have been reported as found. Use the filters to narrow down the list by location or category, and find the item you've lost.
+        "
         url = "/found-items"
         data = "lostItems"
         view = grid
@@ -136,12 +137,6 @@ components {
             show-header = true
             close-icon = true
         }
-        alert {
-            show-header = true
-            close-icon = true
-            close-button-side = right
-            duration = "5000"
-        }
     }
     modals { 
         profile {
@@ -153,21 +148,5 @@ components {
     menu {
         show-logo = true
         type = sidebar
-    }
-    footer {
-        background-color = "#f5f5f5"
-        height = "100px"
-        content = """
-            # Footer Content
-
-            * Contact Us: [info@lostandfound.com](mailto:info@lostandfound.com)
-            * About Us
-            * Privacy Policy
-            * Terms of Service
-
-            Follow us on social media:
-            * Twitter: [@LostAndFoundApp](link:"https://twitter.com/LostAndFoundApp")
-            * Facebook: [Lost and Found Platform](link: "https://twitter.com/LostAndFoundApp")
-        """
     }
 }
