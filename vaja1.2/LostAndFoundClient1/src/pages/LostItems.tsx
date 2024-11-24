@@ -41,7 +41,7 @@ const LostItems: React.FC = () => {
     return (
         <Container maxWidth="lg" sx={{ mt: 8, py: 4, boxShadow: 3, borderRadius: 2, bgcolor: 'background.paper' }}>
             <Typography variant="h4" align="center" gutterBottom>
-                Lost Items
+                Here for Lost Items
             </Typography>
 
             {/* Descriptive Section */}
@@ -85,9 +85,9 @@ const LostItems: React.FC = () => {
                     />
                 </Box>
             </Collapse>
-            
-             {/* Display Count and Instructions */}
-             {!loading && (
+
+            {/* Display Count and Instructions */}
+            {!loading && (
                 <Box textAlign="center" color="text.secondary" mb={4}>
                     <Typography variant="body1">
                         Showing {items.length} items{totalPages > 1 && ` on page ${page} of ${totalPages}`}

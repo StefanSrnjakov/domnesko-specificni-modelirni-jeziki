@@ -80,6 +80,9 @@ pages {
     LostItems {
         header = "Here for Lost Items"
         url = "/lost-items"
+        description = "
+           Browse through items that have been reported as lost. Use the filters to narrow down the list by location or category, and find what you're looking for more efficiently.
+        "
         data = "lostItems"
         view = list
     }
