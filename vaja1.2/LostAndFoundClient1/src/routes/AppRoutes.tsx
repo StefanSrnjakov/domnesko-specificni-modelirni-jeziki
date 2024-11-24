@@ -36,16 +36,11 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   return children;
 };
 
-interface AppRoutesProps {
-  toggleTheme: () => void;
-  mode: 'light' | 'dark';
-}
-
-const AppRoutes: React.FC<AppRoutesProps> = ({ toggleTheme, mode }) => {
+const AppRoutes: React.FC = () => {
   return (
     <Router>
       <AuthProvider>
-        <Navbar toggleTheme={toggleTheme} mode={mode} />
+        <Navbar/>
         <Container>
           <Box
             display="flex"
@@ -104,7 +99,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ toggleTheme, mode }) => {
             </Routes>
           </Box>
         </Container>
-        <Footer />
+        {/* <Footer /> */}
       </AuthProvider>
     </Router>
   );

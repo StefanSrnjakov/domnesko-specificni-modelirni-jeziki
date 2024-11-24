@@ -20,12 +20,8 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 
-interface NavbarProps {
-  toggleTheme: () => void;
-  mode: 'light' | 'dark';
-}
 
-const Navbar: React.FC<NavbarProps> = ({ toggleTheme, mode }) => {
+const Navbar: React.FC = () => {
   const { user, logout } = useAuthContext();
   const [itemsMenuAnchor, setItemsMenuAnchor] = useState<null | HTMLElement>(null);
   const logoSrc = 'Logo.webp';
@@ -120,10 +116,6 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, mode }) => {
             </>
           )}
 
-          {/* Theme Toggle Button */}
-          <IconButton color="inherit" onClick={toggleTheme} sx={{ ml: 2 }}>
-            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
