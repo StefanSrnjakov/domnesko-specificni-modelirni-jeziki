@@ -88,8 +88,6 @@ pages {
     }
     FoundItems {
         header = "Here for Found Items"
-        description = "
-            Brow
         url = "/found-items"
         data = "lostItems"
         view = grid
