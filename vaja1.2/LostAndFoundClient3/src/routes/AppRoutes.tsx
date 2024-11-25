@@ -40,7 +40,7 @@ const AppRoutes: React.FC = () => {
   return (
     <Router>
       <AuthProvider>
-        <Navbar/>
+        <Navbar />
         <Container>
           <Box
             display="flex"
@@ -99,7 +99,7 @@ const AppRoutes: React.FC = () => {
             </Routes>
           </Box>
         </Container>
-        {/* <Footer /> */}
+        <Footer />
       </AuthProvider>
     </Router>
   );

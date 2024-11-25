@@ -83,10 +83,6 @@ const Navbar: React.FC = () => {
                   <SearchIcon fontSize="small" sx={{ mr: 1 }} />
                   Lost Items
                 </MenuItem>
-                <MenuItem onClick={handleItemsMenuClose} component={Link} to="/found-items">
-                  <SearchIcon fontSize="small" sx={{ mr: 1 }} />
-                  Found Items
-                </MenuItem>
                 <MenuItem onClick={handleItemsMenuClose} component={Link} to="/add-item">
                   <AddCircleOutlineIcon fontSize="small" sx={{ mr: 1 }} />
                   Add Item

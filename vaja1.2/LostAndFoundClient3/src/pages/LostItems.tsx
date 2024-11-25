@@ -7,6 +7,7 @@ import { CATEGORIES, LOCATIONS } from '../constants/common';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import FoundItemListItem from '../components/item/ItemListItem';
 
 const LostItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);

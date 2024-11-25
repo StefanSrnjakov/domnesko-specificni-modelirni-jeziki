@@ -180,18 +180,6 @@ const Profile: React.FC = () => {
                 >
                   View My Items
                 </Button>
-
-                {/* Delete Account Button */}
-                <Button
-                  variant="contained"
-                  color="error"
-                  startIcon={<DeleteIcon />}
-                  onClick={() => setOpen(true)}
-                  sx={{ mt: 4 }}
-                  disabled={deleting}
-                >
-                  {deleting ? <CircularProgress size={24} color="inherit" /> : 'Delete Account'}
-                </Button>
               </>
             ) : (
               <Typography color="textSecondary">Profile data not available</Typography>
@@ -200,23 +188,6 @@ const Profile: React.FC = () => {
         )}
       </Box>
 
-      {/* Confirmation Dialog */}
-      <Dialog open={open} onClose={() => setOpen(false)} disableEscapeKeyDown>
-        <DialogTitle color="error">Delete Account</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Are you sure you want to permanently delete your account? This action is irreversible.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleDeleteAccount} color="error" disabled={deleting}>
-            {deleting ? <CircularProgress size={24} color="inherit" /> : 'Delete'}
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Container>
   );
 };

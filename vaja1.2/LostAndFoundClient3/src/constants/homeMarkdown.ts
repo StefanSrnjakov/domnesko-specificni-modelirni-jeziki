@@ -1,15 +1,37 @@
 export const HOME_MARKDOWN = `
-# Welcome to Lost and Found!
+# Lost and Found Community
 
-Our platform helps people report and find lost items across various locations. Whether you've lost something precious or found an item and want to return it to its rightful owner, this platform makes it simple and secure to track and manage lost and found items.
+Welcome to the Lost and Found Community! Our platform encourages collaboration in reporting and finding lost items. Together, we can help those in need of assistance.
 
-## Features:
-* Report lost or found items easily.
-* Browse lists of reported lost and found items.
-* Connect with others to return found items to their owners.
+## Community Features:
+* Share and report lost items with a caring community.
+* Easily find reported lost items by browsing categories.
+* Connect with fellow community members to return items.
 
-### How to Get Started:
-1. Publish a lost item or report a found item.
-2. Browse lost or found items.
-3. Manage your profile and keep track of your reports.
+### Steps to Participate:
+1. Report a lost item.
+2. Browse community listings.
+3. Connect with others to facilitate item returns.
+`
+export const ABOUT_MARKDOWN = `
+# About Us
+
+The Lost and Found Community is dedicated to assisting individuals in locating lost belongings. By fostering a collaborative environment, we make it easy for users to report and search for items, ensuring that no one has to navigate the process alone.
+
+## Our Goals:
+* Create a safe and supportive environment for item recovery.
+* Facilitate communication between users to return items.
+* Build a community of caring individuals.
+
+Let's work together to reunite lost items with their owners!`
+
+
+export const FOOTER_MARKDOWN = `
+* Contact: [support@lostandfoundcommunity.com](mailto:support@lostandfoundcommunity.com)
+* Community Guidelines
+* Privacy Policy
+
+Connect with us:
+* Twitter: [@LostAndFoundComm](link:https://twitter.com/LostAndFoundComm)
+* LinkedIn: [Lost and Found Community](link:https://linkedin.com/company/lost-and-found-community)
 `

@@ -1,15 +1,36 @@
 export const HOME_MARKDOWN = `
-# Welcome to Lost and Found!
+# Found Items Tracker
 
-Our platform helps people report and find lost items across various locations. Whether you've lost something precious or found an item and want to return it to its rightful owner, this platform makes it simple and secure to track and manage lost and found items.
+This platform assists individuals in reporting and claiming found items, ensuring that misplaced possessions can be returned to their rightful owners.
 
-## Features:
-* Report lost or found items easily.
-* Browse lists of reported lost and found items.
-* Connect with others to return found items to their owners.
+## Key Features:
+* Report found items quickly and easily.
+* Browse reported found items by category and location.
+* Connect with individuals looking for their lost items.
 
-### How to Get Started:
-1. Publish a lost item or report a found item.
-2. Browse lost or found items.
-3. Manage your profile and keep track of your reports.
+### Get Started:
+1. Report a found item.
+2. Browse items that have been reported as lost.
+3. Contact item owners directly to return items.
+`
+export const ABOUT_MARKDOWN = `
+# About Us
+
+The Found Items Tracker was created to facilitate the process of reporting and reclaiming lost belongings. Our aim is to provide a seamless and user-friendly experience for individuals looking to return lost items or report what they have found.
+
+## Why Choose Us?
+* Quick and straightforward reporting process.
+* Categorized listings for easy browsing.
+* Secure and user-friendly interface.
+
+Join our community in helping lost items find their way home!`
+
+export const FOOTER_MARKDOWN = `
+* Get in touch: [contact@founditemstracker.com](mailto:contact@founditemstracker.com)
+* Terms of Use
+* Privacy Policy
+
+### Follow us on social media:
+* Instagram: [@FoundItemsTracker](link:https://instagram.com/FoundItemsTracker)
+* LinkedIn: [Found Items Tracker](link:https://linkedin.com/company/found-item-tracke)
 `

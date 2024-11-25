@@ -23,9 +23,9 @@ const scrollbarStyles = {
 // Create the fixed light theme
 const theme = createTheme({
   palette: {
-    mode: "light",
-    primary: { main: "#1976D2" },
-    secondary: { main: "#FF9800" },
+    mode: "dark",
+    primary: { main: "#4CAF50" },
+    secondary: { main: "#FFC10" },
     error: { main: "#D32F2F" },
     warning: { main: "#F44336" },
   },
@@ -45,31 +45,32 @@ const theme = createTheme({
           textTransform: "none",
         },
         containedPrimary: {
-          backgroundColor: "#0D47A1",
+          backgroundColor: "#388E3C",
           "&:hover": {
-            backgroundColor: "#0B3A8E",
+            backgroundColor: "#2E7D32",
           },
         },
         containedSecondary: {
-          backgroundColor: "#FFC107",
+          backgroundColor: "#FF9800",
           "&:hover": {
-            backgroundColor: "#FFB300",
+            backgroundColor: "#FB8C00",
           },
         },
         containedWarning: {
-          backgroundColor: "#F44336",
+          backgroundColor: "#FF5722",
           "&:hover": {
-            backgroundColor: "#E53935",
+            backgroundColor: "#F4511E",
           },
         },
         containedError: {
           backgroundColor: "#D32F2F",
           "&:hover": {
-            backgroundColor: "#C62828",
+            backgroundColor: "#B71C1C",
           },
         },
       },
     },
+
     MuiCssBaseline: {
       styleOverrides: {
         html: scrollbarStyles,

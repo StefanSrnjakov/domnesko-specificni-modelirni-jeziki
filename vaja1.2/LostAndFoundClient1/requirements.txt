@@ -58,19 +58,19 @@ pages {
         quickLinks {
             view = grid
             links {
-                ReportLostItem {
+                reportLostItem {
                     link = "/report-lost"
                     text = "Publish lost item"
                 }
-                ReportFoundItem {
+                reportFoundItem {
                     link = "/report-found"
                     text = "You found something, report here"
                 }
-                ListLostItem {
+                listLostItem {
                     link = "/lost-items"
                     text = "Check if someone published the item you found"
                 }
-                ListFoundItem {
+                listFoundItem {
                     link = "/found-items"
                     text = "Check if someone reported your lost item"
                 }

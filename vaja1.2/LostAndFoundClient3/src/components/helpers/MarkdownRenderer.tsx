@@ -8,7 +8,7 @@ const components = {
   h2: ({ children }: any) => <Typography variant="h4" color="primary" align="center">{children}</Typography>,
   h3: ({ children }: any) => <Typography variant="h5" color="primary" align="center">{children}</Typography>,
   p: ({ children }: any) => <Typography variant="h6" color="text.secondary" paragraph>{children}</Typography>,
-  a: ({ href, children }: any) => <Link href={href} target="_blank" rel="noopener">{children}</Link>,
+  a: ({ href, children }: any) => <Link href={href} color="text.secondary" target="_blank" rel="noopener">{children}</Link>,
   ul: ({ children }: any) => (
     <List
       sx={{

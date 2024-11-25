@@ -7,6 +7,7 @@ import { CATEGORIES, LOCATIONS } from '../constants/common';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import FoundItemListItem from '../components/item/ItemListItem';
 
 const LostItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -104,13 +105,11 @@ const LostItems: React.FC = () => {
             ) : (
                 <>
                     {items.length > 0 ? (
-                        <Grid container spacing={4}>
+                        <Box sx={{ width: '100%' }}>
                             {items.map((item) => (
-                                <Grid item xs={12} sm={6} md={4} key={item._id}>
-                                    <FoundItemCard item={item} />
-                                </Grid>
+                                <FoundItemListItem key={item._id} item={item} />
                             ))}
-                        </Grid>
+                        </Box>
                     ) : (
                         <Alert severity="info" sx={{ mt: 4 }}>
                             No items found. Try adjusting the filters or check back later for new listings.
@@ -128,6 +127,7 @@ const LostItems: React.FC = () => {
                     </Box>
                 </>
             )}
+
         </Container>
     );
 };

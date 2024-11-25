@@ -1,0 +1,146 @@
+MyDsl ::=
+    'title' '=' string
+    'description' '=' string
+    'host' '=' string
+    'port' '=' string
+    'theme' Theme
+    'layout' Layout
+    'api' Api
+    'pages' Pages
+    'components' Components
+
+Theme ::= '{' 
+    'mode' '=' (dark | light)
+    'primary-color' '=' string
+    'secondary-color' '=' string
+    'primary-btn-color' '=' string
+    'secondary-btn-color' '=' string
+    'warning-btn-color' '=' string
+    'error-btn-color' '=' string
+'}'
+
+Layout ::= '{' 
+    'showMenu' '=' boolean
+    'showHeader' '=' boolean
+    'showFooter' '=' boolean
+'}'
+
+Api ::= '{' 
+    'base' '=' string
+    'endpoints' Endpoints
+'}'
+Endpoints ::= '{' 
+    'get' ApiGet
+    'post' ApiPost
+'}'
+ApiGet ::= '{' 
+    'lostItems' '=' string
+    'foundItems' '=' string
+    'profile' '=' string
+'}'
+ApiPost ::= '{' 
+    'reportLost' '=' string
+    'reportFound' '=' string
+    'login' '=' string
+    'register' '=' string
+'}'
+
+Pages ::= '{' 
+    'home' '=' Home
+    'lostItems' '=' LostItems
+    'foundItems' '=' FoundItems
+    'reportLost' '=' ReportLost
+    'reportFound' '=' ReportFound
+    'about' '=' About
+'}'
+Home ::= '{' 
+    'url' '=' string
+    'title' '=' string
+    'content' '=' string
+    'quickLinks' QuickLinks
+'}'
+QuickLinks ::= '{' 
+    'view' '=' ('grid'|'list')
+    'links' Links
+'}'
+Links ::= '{' 
+    'reportLostItem' ReportLostItem
+    'reportFoundItem' ReportFoundItem
+    'listLostItem' ListLostItem
+    'listFoundItem' ListFoundItem
+'}'
+ReportLostItem ::= '{'
+    'link' '=' string
+    'text' '=' string
+'}'
+ReportFoundItem ::= '{'
+    'link' '=' string
+    'text' '=' string
+'}'
+ListLostItem ::= '{'
+    'link' '=' string
+    'text' '=' string
+'}'
+ListFoundItem ::= '{'
+    'link' '=' string
+    'text' '=' string
+'}'
+LostItems ::= '{'
+    'header' '=' string
+    'url' '=' string
+    'description' '=' string
+    'data' '=' string
+    'view' '=' ('grid'|'list')
+'}'
+FoundItems ::= '{'
+    'header' '=' string
+    'description' '=' string
+    'url' '=' string
+    'data' '=' string
+    'view' '=' ('grid'|'list')
+'}'
+ReportLost ::= '{'
+    'url' '=' string
+    'post' '=' string
+'}'
+ReportFound ::= '{'
+    'url' '=' string
+    'post' '=' string
+'}'
+About ::= '{'
+    'url' '=' string
+    'title' '=' string
+    'content' '=' string
+'}'
+Components ::= '{'
+    'pop-ups' PopUps
+    'modals' Modals
+    'menu' Menu
+'}'
+PopUps ::= '{'
+    'error' ErrorPopUp
+    'confirmation' ConfirmationPopUp
+'}'
+ErrorPopUp ::= '{'
+    'show-header' '=' boolean
+    'close-icon' '=' boolean
+    'close-button-side' '=' ('right'|'left')
+'}'
+ConfirmationPopUp ::= '{'
+    'show-header' '=' boolean
+    'close-icon' '=' boolean
+'}'
+
+Modals ::= '{'
+    'profile' ProfileModal
+'}'
+ProfileModal ::= '{'
+    'show-header' '=' boolean
+    'allow-deleteProfile' '=' boolean
+    'show-dummy-image' '=' boolean
+'}'
+
+Menu ::= '{'
+    'show-logo' '=' boolean
+    'type' '=' ('sidebar'|'topbar')
+'}'

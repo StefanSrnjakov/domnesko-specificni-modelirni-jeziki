@@ -113,40 +113,7 @@ const HomePage: React.FC = () => {
               alignItems: 'center',
             }}
           >
-            <Card
-              sx={{ height: 270, width: '100%' }}
-              onClick={() => navigate('/found-items')}
-            >
-              <CardMedia
-                component="img"
-                image="lost-item-home2.png"
-                alt="Find Lost Items"
-                sx={{
-                  height: '60%',
-                }}
-              />
-              <CardContent>
-                <Typography variant="h6" color="text.primary">
-                  Find Lost Items
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Check if someone reported your lost item
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
 
-          {/* Second Row */}
-          <Grid
-            item
-            xs={12}
-            md={5}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
             <Card
               sx={{ height: 270, width: '100%' }}
               onClick={() => navigate('/lost-items')}
@@ -168,7 +135,9 @@ const HomePage: React.FC = () => {
                 </Typography>
               </CardContent>
             </Card>
+
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -179,27 +148,7 @@ const HomePage: React.FC = () => {
               alignItems: 'center',
             }}
           >
-            <Card
-              sx={{ height: 270, width: '100%' }}
-              onClick={() => navigate('/add-item')}
-            >
-              <CardMedia
-                component="img"
-                image="lost-item-home4.png" // Replace with your image path
-                alt="Report That You Found an Item"
-                sx={{
-                  height: '60%',
-                }}
-              />
-              <CardContent>
-                <Typography variant="h6" color="text.primary">
-                  Report That You Found an Item
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  You found something, report here
-                </Typography>
-              </CardContent>
-            </Card>
+
           </Grid>
         </Grid>
 

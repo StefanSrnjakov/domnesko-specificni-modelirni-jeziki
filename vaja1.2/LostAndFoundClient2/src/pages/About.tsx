@@ -11,6 +11,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import ReportIcon from '@mui/icons-material/Report';
 import SearchIcon from '@mui/icons-material/Search';
 import GroupIcon from '@mui/icons-material/Group';
+import MarkdownRenderer from '../components/helpers/MarkdownRenderer';
+import { ABOUT_MARKDOWN } from '../constants/homeMarkdown';
 
 const AboutPage: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
@@ -20,15 +22,12 @@ const AboutPage: React.FC = () => {
       <Box display="flex" alignItems="center" gap={2} mt={4}>
         <InfoIcon color="primary" fontSize="large" />
         <Typography variant="h4" gutterBottom>
-          About the Lost and Found App
+          About the Lost and Found Application
         </Typography>
       </Box>
 
       <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 4 }}>
-        <Typography variant="body1" paragraph>
-          The Lost and Found App is a convenient, user-friendly platform designed to help users report, search, and connect over lost items.
-          Whether you've lost a personal belonging or found something valuable, this app provides a streamlined way for you to communicate with others in the community and help reunite people with their possessions.
-        </Typography>
+        <MarkdownRenderer markdown={ABOUT_MARKDOWN} />
 
         <Box
           component="img"

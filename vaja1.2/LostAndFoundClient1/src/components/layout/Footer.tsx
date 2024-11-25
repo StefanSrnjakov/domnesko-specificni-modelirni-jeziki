@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   return (
     <AppBar position="static" color="primary" sx={{ top: 'auto', bottom: 0, padding: '5px 0' }}>
       <Toolbar sx={{ display: 'flex', flexDirection: 'column', gap: 1, alignItems: 'center' }}>
-        
+
         <Typography variant="body2" align="center" color="inherit" sx={{ mb: 1 }}>
           Your go-to app for finding and reporting lost items. Secure, reliable, and community-driven.
         </Typography>

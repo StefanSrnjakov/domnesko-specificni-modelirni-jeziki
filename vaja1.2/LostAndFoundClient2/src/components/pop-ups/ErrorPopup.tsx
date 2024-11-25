@@ -16,7 +16,7 @@ const ErrorPopup: React.FC<ErrorPopupProps> = ({
     headerText = "Error",
     bodyText = "",
     closeIcon = true,
-    closeButtonSide = "right",
+    closeButtonSide = "left",
     onClose,
 }) => {
     return (

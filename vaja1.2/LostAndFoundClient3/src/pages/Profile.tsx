@@ -180,18 +180,6 @@ const Profile: React.FC = () => {
                 >
                   View My Items
                 </Button>
-
-                {/* Delete Account Button */}
-                <Button
-                  variant="contained"
-                  color="error"
-                  startIcon={<DeleteIcon />}
-                  onClick={() => setOpen(true)}
-                  sx={{ mt: 4 }}
-                  disabled={deleting}
-                >
-                  {deleting ? <CircularProgress size={24} color="inherit" /> : 'Delete Account'}
-                </Button>
               </>
             ) : (
               <Typography color="textSecondary">Profile data not available</Typography>

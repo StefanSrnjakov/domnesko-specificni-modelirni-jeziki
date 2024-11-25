@@ -24,8 +24,8 @@ const scrollbarStyles = {
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#1976D2" },
-    secondary: { main: "#FF9800" },
+    primary: { main: "#722F37" },
+    secondary: { main: "#FF5722" },
     error: { main: "#D32F2F" },
     warning: { main: "#F44336" },
   },
@@ -45,25 +45,25 @@ const theme = createTheme({
           textTransform: "none",
         },
         containedPrimary: {
-          backgroundColor: "#0D47A1",
+          backgroundColor: "#722F37",
           "&:hover": {
             backgroundColor: "#0B3A8E",
           },
         },
         containedSecondary: {
-          backgroundColor: "#FFC107",
+          backgroundColor: "#FF9800",
           "&:hover": {
             backgroundColor: "#FFB300",
           },
         },
         containedWarning: {
-          backgroundColor: "#F44336",
+          backgroundColor: "#FFC107",
           "&:hover": {
             backgroundColor: "#E53935",
           },
         },
         containedError: {
-          backgroundColor: "#D32F2F",
+          backgroundColor: "#F44336",
           "&:hover": {
             backgroundColor: "#C62828",
           },
