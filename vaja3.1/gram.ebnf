@@ -1,4 +1,4 @@
-MyDsl ::=
+AppDescription ::=
     'title' '=' string
     'description' '=' string
     'host' '=' string
@@ -34,24 +34,24 @@ Endpoints ::= '{'
     'post' ApiPost
 '}'
 ApiGet ::= '{' 
-    'lostItems' '=' string
-    'foundItems' '=' string
+    ('lostItems' '=' string)?
+    ('foundItems' '=' string)?
     'profile' '=' string
 '}'
 ApiPost ::= '{' 
-    'reportLost' '=' string
-    'reportFound' '=' string
+    ('reportLost' '=' string)?
+    ('reportFound' '=' string)?
     'login' '=' string
     'register' '=' string
 '}'
 
 Pages ::= '{' 
-    'home' '=' Home
-    'lostItems' '=' LostItems
-    'foundItems' '=' FoundItems
-    'reportLost' '=' ReportLost
-    'reportFound' '=' ReportFound
-    'about' '=' About
+    'home' Home
+    ('lostItems' LostItems)?
+    ('foundItems' FoundItems)?
+    ('reportLost' ReportLost)?
+    ('reportFound' ReportFound)?
+    ('about' About)?
 '}'
 Home ::= '{' 
     'url' '=' string
