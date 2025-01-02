@@ -72,7 +72,7 @@ const SideBar: React.FC<SideBarProps> = ({ drawerOpen, setDrawerOpen }) => {
                 </ListItem>
                 <ListItem sx={{
                     color: 'inherit'
-                }} component={Link} to="/about">
+                }} component={Link} to={appConfig.pages.About.url}>
                     <ListItemIcon>
                         <InfoIcon />
                     </ListItemIcon>
@@ -91,7 +91,7 @@ const SideBar: React.FC<SideBarProps> = ({ drawerOpen, setDrawerOpen }) => {
                         </ListItem>
                         <ListItem sx={{
                             color: 'inherit'
-                        }} component={Link} to="/lost-items">
+                        }} component={Link} to={appConfig.pages.LostItems.url}>
                             <ListItemIcon>
                                 <SearchIcon />
                             </ListItemIcon>
@@ -99,7 +99,7 @@ const SideBar: React.FC<SideBarProps> = ({ drawerOpen, setDrawerOpen }) => {
                         </ListItem>
                         <ListItem sx={{
                             color: 'inherit'
-                        }} component={Link} to="/found-items">
+                        }} component={Link} to={appConfig.pages.FoundItems.url}>
                             <ListItemIcon>
                                 <SearchIcon />
                             </ListItemIcon>
@@ -107,7 +107,7 @@ const SideBar: React.FC<SideBarProps> = ({ drawerOpen, setDrawerOpen }) => {
                         </ListItem>
                         <ListItem sx={{
                             color: 'inherit'
-                        }} component={Link} to="/add-item">
+                        }} component={Link} to={appConfig.pages.ReportItem.url}>
                             <ListItemIcon>
                                 <AddCircleOutlineIcon />
                             </ListItemIcon>

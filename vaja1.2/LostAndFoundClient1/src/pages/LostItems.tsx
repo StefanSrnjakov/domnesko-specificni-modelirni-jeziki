@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, CircularProgress, Container, Grid, TextField, Autocomplete, Pagination, Collapse, IconButton, Alert } from '@mui/material';
+import { Box, Typography, Container, Collapse, IconButton, Autocomplete, TextField } from '@mui/material';
 import { itemService } from '../services/itemService';
 import { Item } from '../models/Item';
-import FoundItemCard from '../components/item/ItemCard';
 import { CATEGORIES, LOCATIONS } from '../constants/common';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import FoundItemListItem from '../components/item/ItemListItem';
 import appConfig from '../appConfig';
+import DisplayFoundItems from '../components/item/DisplayFoundItems';
 
 const LostItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -18,6 +17,8 @@ const LostItems: React.FC = () => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [filtersOpen, setFiltersOpen] = useState(false);
+
+    const displayType = appConfig.pages.LostItems.view as 'grid' | 'table' | 'list';
 
     // Fetch items based on filters and pagination
     useEffect(() => {
@@ -32,7 +33,7 @@ const LostItems: React.FC = () => {
                 setItems(fetchedItems);
                 setTotalPages(totalPages);
             } catch (error) {
-                console.error("Error fetching items:", error);
+                console.error('Error fetching items:', error);
             } finally {
                 setLoading(false);
             }
@@ -88,47 +89,15 @@ const LostItems: React.FC = () => {
                 </Box>
             </Collapse>
 
-            {/* Display Count and Instructions */}
-            {!loading && (
-                <Box textAlign="center" color="text.secondary" mb={4}>
-                    <Typography variant="body1">
-                        Showing {items.length} items{totalPages > 1 && ` on page ${page} of ${totalPages}`}
-                    </Typography>
-                </Box>
-            )}
-
-
-            {/* Items Grid */}
-            {loading ? (
-                <Box display="flex" justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
-                    <CircularProgress />
-                </Box>
-            ) : (
-                <>
-                    {items.length > 0 ? (
-                        <Box sx={{ width: '100%' }}>
-                            {items.map((item) => (
-                                <FoundItemListItem key={item._id} item={item} />
-                            ))}
-                        </Box>
-                    ) : (
-                        <Alert severity="info" sx={{ mt: 4 }}>
-                            No items found. Try adjusting the filters or check back later for new listings.
-                        </Alert>
-                    )}
-
-                    {/* Pagination Control */}
-                    <Box display="flex" justifyContent="center" mt={4}>
-                        <Pagination
-                            count={totalPages}
-                            page={page}
-                            onChange={(event, value) => setPage(value)}
-                            color="primary"
-                        />
-                    </Box>
-                </>
-            )}
-
+            {/* Use DisplayFoundItems for displaying items */}
+            <DisplayFoundItems
+                items={items}
+                loading={loading}
+                displayType={displayType}
+                page={page}
+                totalPages={totalPages}
+                onPageChange={(event, value) => setPage(value)}
+            />
         </Container>
     );
 };

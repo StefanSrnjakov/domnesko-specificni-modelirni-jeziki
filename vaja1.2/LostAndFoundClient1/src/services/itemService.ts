@@ -4,7 +4,7 @@ import { tokenUtils } from '../utils/tokenUtils'; // Assuming you have token uti
 import appConfig from '../appConfig';
 
 // Define the base URL of your API (e.g., from environment variables)
-const API_URL = appConfig.api.base;
+const API_URL = `${appConfig.api.base}/api`;
 
 export const itemService = {
     addItem: async (itemData: FormData): Promise<any> => {

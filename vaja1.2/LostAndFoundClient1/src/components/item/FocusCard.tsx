@@ -11,8 +11,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import ReportIcon from '@mui/icons-material/Report';
 import { itemService } from '../../services/itemService';
 import { useAuthContext } from '../../context/AuthContext';
+import appConfig from '../../appConfig';
 
-const API_URL = process.env.API_HOST || 'http://localhost:3001';
+const API_URL = appConfig.api.base;
 
 interface FocusCardProps {
     item: Item;
@@ -80,7 +81,7 @@ const FocusCard: React.FC<FocusCardProps> = ({ item, handleClose, open }) => {
                         <CloseIcon />
                     </IconButton>
                 </Box>
-                
+
                 {/* Image with max dimensions */}
                 <CardMedia
                     component="img"
@@ -95,7 +96,7 @@ const FocusCard: React.FC<FocusCardProps> = ({ item, handleClose, open }) => {
                         mb: 2,
                     }}
                 />
-                
+
                 {/* Category */}
                 <Chip label={item.category} icon={<LabelIcon />} color="secondary" size="small" sx={{ mb: 2 }} />
 
@@ -105,7 +106,7 @@ const FocusCard: React.FC<FocusCardProps> = ({ item, handleClose, open }) => {
                 <Typography variant="body2" color="text.secondary" paragraph sx={{ display: '-webkit-box', overflow: 'auto', WebkitBoxOrient: 'vertical', WebkitLineClamp: 6 }}>
                     {item.description}
                 </Typography>
-                
+
                 <Divider sx={{ my: 2 }} />
 
                 {/* Location with overflow handling */}

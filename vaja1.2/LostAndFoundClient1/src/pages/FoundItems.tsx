@@ -46,10 +46,10 @@ const FoundItems: React.FC = () => {
         <Container maxWidth="lg" sx={{ mt: 8, py: 4, boxShadow: 3, borderRadius: 2, bgcolor: 'background.paper' }}>
             {/* Page Title */}
             <Typography variant="h4" align="center" gutterBottom>
-                Found Items
+                {appConfig.pages.FoundItems.header}
             </Typography>
             <Typography variant="subtitle1" align="center" color="text.secondary" sx={{ mb: 4 }}>
-                Browse through items that have been found and reported. Use filters to refine your search.
+                {appConfig.pages.FoundItems.description}
             </Typography>
 
             {/* Collapsible Filter Section */}

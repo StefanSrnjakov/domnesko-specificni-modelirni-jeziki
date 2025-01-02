@@ -3,15 +3,15 @@ import axios from 'axios'; // You can replace axios with fetch if you prefer
 import { tokenUtils } from '../utils/tokenUtils'; // Assuming you have token utilities
 import { User } from '../models/Profile';
 import { LoginResponse, RegisterResponse } from '../types/apiResponses';
+import appConfig from '../appConfig';
 
-// Define the base URL of your API (e.g., from environment variables)
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+const API_URL = `${appConfig.api.base}/api`;
 
 
 export const authService = {
   login: async (email: string, password: string): Promise<LoginResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/users/login`, {
+      const response = await axios.post(`${API_URL}/${appConfig.api.endpoints.post.login}`, {
         email,
         password,
       });
@@ -24,7 +24,7 @@ export const authService = {
 
   register: async (userData: User): Promise<RegisterResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/users`, userData);
+      const response = await axios.post(`${API_URL}/${appConfig.api.endpoints.post.register}`, userData);
       return response.data;
     } catch (error: any) {
       console.error('Registration error:', error);

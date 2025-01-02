@@ -70,7 +70,7 @@ const AppRoutes: React.FC = () => {
                 }
               />
               <Route
-                path="/lost-items"
+                path={appConfig.pages.LostItems.url}
                 element={
                   <PrivateRoute>
                     <LostItems />
@@ -78,7 +78,7 @@ const AppRoutes: React.FC = () => {
                 }
               />
               <Route
-                path="/found-items"
+                path={appConfig.pages.FoundItems.url}
                 element={
                   <PrivateRoute>
                     <FoundItems />
@@ -94,7 +94,7 @@ const AppRoutes: React.FC = () => {
                 }
               />
               <Route
-                path="/add-item"
+                path={appConfig.pages.ReportItem.url}
                 element={
                   <PrivateRoute>
                     <AddItem />

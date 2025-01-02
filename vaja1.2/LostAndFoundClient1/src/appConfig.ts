@@ -1,7 +1,7 @@
 const appConfig = {
     title: "Lost and Found",
     description: "An application to track lost and found items.",
-    host: "http://localhost:3001",
+    host: "http://localhost:3000",
     port: "3001",
     theme: {
         mode: "light",
@@ -18,7 +18,7 @@ const appConfig = {
         showFooter: false
     },
     api: {
-        base: "http://localhost:3001/api",
+        base: "http://localhost:3001",
         endpoints: {
             get: {
                 lostItems: "items",
@@ -28,8 +28,8 @@ const appConfig = {
             post: {
                 reportLost: "items",
                 reportFound: "items",
-                login: "login",
-                register: "register"
+                login: "users/login",
+                register: "users"
             }
         }
     },
@@ -87,7 +87,7 @@ Our platform helps people report and find lost items across various locations. W
                 Browse through items that have been reported as lost. Use the filters to narrow down the list by location or category, and find what you're looking for more efficiently.
             `,
             data: "lostItems",
-            view: "list"
+            view: "table"
         },
         FoundItems: {
             header: "Here for Found Items",
@@ -96,35 +96,31 @@ Our platform helps people report and find lost items across various locations. W
                 Browse through items that have been reported as found. Use the filters to narrow down the list by location or category, and find the item you've lost.
             `,
             data: "lostItems",
-            view: "list"
+            view: "table"
         },
-        ReportLost: {
-            url: "/report-lost",
+        ReportItem: {
+            url: "/add-item",
             post: "reportLost"
-        },
-        ReportFound: {
-            url: "/report-found",
-            post: "reportFound"
         },
         About: {
             url: "/about",
             title: "About the Lost and Found Application",
             content: `
-                # About Us
+# About Us
 
-                The Lost and Found application was created to help people recover lost items or return found items with ease. We aim to provide a **simple**, **user-friendly** platform to post details of lost or found objects, categorize them, and keep track of the search and recovery process.
+The Lost and Found application was created to help people recover lost items or return found items with ease. We aim to provide a **simple**, **user-friendly** platform to post details of lost or found objects, categorize them, and keep track of the search and recovery process.
 
-                ## Why Use This App?
-                * Convenient way to report lost or found items.
-                * Easy to browse through categorized lost/found items.
-                * Secure platform to ensure privacy and protection of personal information.
+## Why Use This App?
+* Convenient way to report lost or found items.
+* Easy to browse through categorized lost/found items.
+* Secure platform to ensure privacy and protection of personal information.
 
-                ## How It Works:
-                1. **Report Items:** Lost an item or found something? Post the details in just a few steps.
-                2. **Browse Listings:** Browse through a categorized list of lost and found items to find a match.
-                3. **Connect with Owners:** Once you find a match, contact the item owner to return the item.
+## How It Works:
+1. **Report Items:** Lost an item or found something? Post the details in just a few steps.
+2. **Browse Listings:** Browse through a categorized list of lost and found items to find a match.
+3. **Connect with Owners:** Once you find a match, contact the item owner to return the item.
 
-                Join us in making the world a better place, where lost things can find their way back home!
+Join us in making the world a better place, where lost things can find their way back home!
             `
         }
     },

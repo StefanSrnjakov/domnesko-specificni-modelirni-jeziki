@@ -4,8 +4,9 @@ import { Item } from '../../models/Item';
 import PlaceIcon from '@mui/icons-material/Place';
 import EditIcon from '@mui/icons-material/Edit'; // Import edit icon
 import MyFocusCard from './MyFocusCard';
+import appConfig from '../../appConfig';
 
-const API_URL = process.env.API_HOST || 'http://localhost:3001';
+const API_URL = appConfig.api.base;
 
 interface MyItemCardProps {
     item: Item;

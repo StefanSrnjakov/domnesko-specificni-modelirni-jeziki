@@ -16,6 +16,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
+import appConfig from '../../appConfig';
 
 
 const Navbar: React.FC = () => {
@@ -52,7 +53,7 @@ const Navbar: React.FC = () => {
           <Button color="inherit" component={Link} to="/" startIcon={<HomeIcon />}>
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/about" startIcon={<InfoIcon />}>
+          <Button color="inherit" component={Link} to={appConfig.pages.About.url} startIcon={<InfoIcon />}>
             About
           </Button>
 
@@ -76,15 +77,15 @@ const Navbar: React.FC = () => {
                   <InventoryIcon fontSize="small" sx={{ mr: 1 }} />
                   My Items
                 </MenuItem>
-                <MenuItem onClick={handleItemsMenuClose} component={Link} to="/lost-items">
+                <MenuItem onClick={handleItemsMenuClose} component={Link} to={appConfig.pages.LostItems.url}>
                   <SearchIcon fontSize="small" sx={{ mr: 1 }} />
                   Lost Items
                 </MenuItem>
-                <MenuItem onClick={handleItemsMenuClose} component={Link} to="/found-items">
+                <MenuItem onClick={handleItemsMenuClose} component={Link} to={appConfig.pages.FoundItems.url}>
                   <SearchIcon fontSize="small" sx={{ mr: 1 }} />
                   Found Items
                 </MenuItem>
-                <MenuItem onClick={handleItemsMenuClose} component={Link} to="/add-item">
+                <MenuItem onClick={handleItemsMenuClose} component={Link} to={appConfig.pages.ReportItem.url}>
                   <AddCircleOutlineIcon fontSize="small" sx={{ mr: 1 }} />
                   Add Item
                 </MenuItem>

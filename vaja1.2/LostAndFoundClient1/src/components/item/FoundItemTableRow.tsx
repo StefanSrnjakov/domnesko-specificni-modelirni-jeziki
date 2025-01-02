@@ -3,8 +3,9 @@ import { TableRow, TableCell, Button, Chip, Box } from '@mui/material';
 import { Item } from '../../models/Item';
 import PlaceIcon from '@mui/icons-material/Place';
 import FocusCard from './FocusCard'; // Modal for item details
+import appConfig from '../../appConfig';
 
-const API_URL = process.env.API_HOST || 'http://localhost:3001';
+const API_URL = appConfig.api.base;
 
 interface FoundItemTableRowProps {
     item: Item;

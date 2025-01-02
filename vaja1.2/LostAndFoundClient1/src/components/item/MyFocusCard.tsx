@@ -9,8 +9,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import CategoryIcon from '@mui/icons-material/Category';
 import DescriptionIcon from '@mui/icons-material/Description';
+import appConfig from '../../appConfig';
 
-const API_URL = process.env.API_HOST || 'http://localhost:3001';
+const API_URL = appConfig.api.base;
 
 interface MyFocusCardProps {
     item: Item;
