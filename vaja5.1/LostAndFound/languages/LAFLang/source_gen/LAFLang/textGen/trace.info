@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082113931046:jetbrains.mps.baseLanguage.structure.ContinueStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <root>
+    <file name="TextGenAspectDescriptor.java">
+      <unit at="55,0,58,0" name="LAFLang.textGen.TextGenAspectDescriptor$CONCEPTS" />
+      <unit at="59,0,62,0" name="LAFLang.textGen.TextGenAspectDescriptor$PROPS" />
+      <unit at="18,0,63,0" name="LAFLang.textGen.TextGenAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:f8c15713-5b54-4338-b7f7-7d71d20309d9(LAFLang.textGen)/2543024648749299373">
+    <file name="AppDescription_TextGen.java">
+      <node id="2543024648749299373" at="11,54,12,55" concept="4" />
+      <node id="2543024648749315027" at="12,55,13,42" concept="1" />
+      <node id="2543024648749299373" at="10,0,15,0" concept="3" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="2543024648749299373" at="11,54,13,42">
+        <var name="tgs" id="2543024648749299373" />
+      </scope>
+      <scope id="2543024648749299373" at="10,0,15,0">
+        <var name="ctx" id="2543024648749299373" />
+      </scope>
+      <unit id="2543024648749299373" at="9,0,16,0" name="LAFLang.textGen.AppDescription_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="2543024648749299373" at="28,48,29,44" concept="5" />
+      <node id="2543024648749299373" at="37,65,38,56" concept="4" />
+      <node id="2543024648749299373" at="38,56,39,59" concept="4" />
+      <node id="2543024648749299373" at="39,59,40,114" concept="1" />
+      <node id="2543024648749299373" at="40,114,41,17" concept="0" />
+      <node id="2543024648749300409" at="45,64,46,64" concept="5" />
+      <node id="2543024648749311467" at="48,69,49,16" concept="5" />
+      <node id="2543024648749311229" at="51,60,52,20" concept="5" />
+      <node id="2543024648749299373" at="45,0,48,0" concept="6" trace="getFileName_AppDescription#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2543024648749299373" at="48,0,51,0" concept="6" trace="getFileExtension_AppDescription#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2543024648749299373" at="51,0,54,0" concept="6" trace="getPath_AppDescription#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2543024648749299373" at="36,58,42,7" concept="2" />
+      <scope id="2543024648749299373" at="28,48,29,44" />
+      <scope id="2543024648749299373" at="45,64,46,64" />
+      <scope id="2543024648749299373" at="48,69,49,16" />
+      <scope id="2543024648749299373" at="51,60,52,20" />
+      <scope id="2543024648749299373" at="45,0,48,0">
+        <var name="node" id="2543024648749299373" />
+      </scope>
+      <scope id="2543024648749299373" at="48,0,51,0">
+        <var name="node" id="2543024648749299373" />
+      </scope>
+      <scope id="2543024648749299373" at="51,0,54,0">
+        <var name="node" id="2543024648749299373" />
+      </scope>
+      <scope id="2543024648749299373" at="37,65,41,17">
+        <var name="ext" id="2543024648749299373" />
+        <var name="fname" id="2543024648749299373" />
+      </scope>
+    </file>
+  </root>
+</debug-info>
+

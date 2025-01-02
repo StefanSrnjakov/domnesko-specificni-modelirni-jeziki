@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082113931046:jetbrains.mps.baseLanguage.structure.ContinueStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1144226303539:jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123157:jetbrains.mps.baseLanguage.structure.Statement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <root>
+    <file name="TextGenAspectDescriptor.java">
+      <unit at="63,0,66,0" name="ReykilLanguage.textGen.TextGenAspectDescriptor$CONCEPTS" />
+      <unit at="67,0,70,0" name="ReykilLanguage.textGen.TextGenAspectDescriptor$PROPS" />
+      <unit at="18,0,71,0" name="ReykilLanguage.textGen.TextGenAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:bf2bc5b5-b6a6-4700-b3a6-32fb49780966(ReykilLanguage.textGen)/2491147760775335105">
+    <file name="RComponent_TextGen.java">
+      <node id="2491147760775335105" at="22,54,23,55" concept="5" />
+      <node id="2491147760775707594" at="23,55,24,0" concept="7" />
+      <node id="2491147760775560679" at="24,0,25,49" concept="1" />
+      <node id="2491147760775666090" at="25,49,26,18" concept="1" />
+      <node id="2491147760775559717" at="26,18,27,18" concept="1" />
+      <node id="2491147760775656337" at="27,18,28,28" concept="1" />
+      <node id="2491147760775656437" at="28,28,29,86" concept="1" />
+      <node id="2491147760775658339" at="29,86,30,23" concept="1" />
+      <node id="2491147760775665954" at="30,23,31,18" concept="1" />
+      <node id="2491147760775335105" at="31,18,32,44" concept="1" />
+      <node id="2491147760775462978" at="32,44,33,17" concept="1" />
+      <node id="2491147760775604659" at="33,17,34,27" concept="1" />
+      <node id="2491147760775665707" at="34,27,35,18" concept="1" />
+      <node id="2491147760775335105" at="35,18,36,44" concept="1" />
+      <node id="2491147760775504217" at="36,44,37,17" concept="1" />
+      <node id="2491147760775605501" at="37,17,38,24" concept="1" />
+      <node id="2491147760775665629" at="38,24,39,18" concept="1" />
+      <node id="2491147760775335105" at="39,18,40,44" concept="1" />
+      <node id="3287138861567872608" at="42,185,43,31" concept="1" />
+      <node id="2491147760775335105" at="45,5,46,44" concept="1" />
+      <node id="2491147760775562102" at="46,44,47,17" concept="1" />
+      <node id="2491147760775606796" at="47,17,48,25" concept="1" />
+      <node id="2491147760775663982" at="48,25,49,18" concept="1" />
+      <node id="2491147760775335105" at="49,18,50,44" concept="1" />
+      <node id="2491147760775562294" at="50,44,51,17" concept="1" />
+      <node id="2491147760775607621" at="51,17,52,20" concept="1" />
+      <node id="2491147760775665551" at="52,20,53,18" concept="1" />
+      <node id="2491147760775335105" at="53,18,54,44" concept="1" />
+      <node id="2491147760775608206" at="54,44,55,20" concept="1" />
+      <node id="2491147760775665473" at="55,20,56,18" concept="1" />
+      <node id="2491147760775664461" at="56,18,57,34" concept="1" />
+      <node id="2491147760775366460" at="57,34,58,86" concept="1" />
+      <node id="3287138861568287106" at="58,86,59,20" concept="1" />
+      <node id="2491147760775665384" at="59,20,60,18" concept="1" />
+      <node id="2491147760775335105" at="64,0,65,0" concept="8" trace="name$MnvL" />
+      <node id="2491147760775335105" at="68,0,69,0" concept="8" trace="cName$vz6U" />
+      <node id="2491147760775335105" at="69,0,70,0" concept="8" trace="renders$lmWu" />
+      <node id="2491147760775335105" at="73,0,74,0" concept="8" trace="ReykillDSL$Hm" />
+      <node id="3287138861567857221" at="41,194,44,7" concept="3" />
+      <node id="3287138861567826898" at="40,44,45,5" concept="2" />
+      <node id="2491147760775335105" at="21,0,62,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3287138861567857223" at="42,185,43,31" />
+      <scope id="3287138861567826901" at="41,194,44,7" />
+      <scope id="3287138861567826898" at="40,44,45,5">
+        <var name="render" id="3287138861567826899" />
+      </scope>
+      <scope id="2491147760775335105" at="22,54,60,18">
+        <var name="tgs" id="2491147760775335105" />
+      </scope>
+      <scope id="2491147760775335105" at="21,0,62,0">
+        <var name="ctx" id="2491147760775335105" />
+      </scope>
+      <unit id="2491147760775335105" at="63,0,66,0" name="ReykilLanguage.textGen.RComponent_TextGen$PROPS" />
+      <unit id="2491147760775335105" at="72,0,75,0" name="ReykilLanguage.textGen.RComponent_TextGen$CONCEPTS" />
+      <unit id="2491147760775335105" at="67,0,71,0" name="ReykilLanguage.textGen.RComponent_TextGen$LINKS" />
+      <unit id="2491147760775335105" at="20,0,76,0" name="ReykilLanguage.textGen.RComponent_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="2491147760775335105" at="32,44,33,40" concept="6" />
+      <scope id="2491147760775335105" at="32,44,33,40" />
+    </file>
+  </root>
+  <root nodeRef="r:bf2bc5b5-b6a6-4700-b3a6-32fb49780966(ReykilLanguage.textGen)/2491147760775412299">
+    <file name="ReykillDSL_TextGen.java">
+      <node id="2491147760775412299" at="15,54,16,55" concept="5" />
+      <node id="2491147760775417385" at="17,104,18,27" concept="1" />
+      <node id="2491147760775412299" at="23,0,24,0" concept="8" trace="listOfComponents$yviE" />
+      <node id="2491147760775417385" at="16,55,19,5" concept="2" />
+      <node id="2491147760775412299" at="14,0,21,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="2491147760775417385" at="17,104,18,27" />
+      <scope id="2491147760775417385" at="16,55,19,5">
+        <var name="item" id="2491147760775417385" />
+      </scope>
+      <scope id="2491147760775412299" at="15,54,19,5">
+        <var name="tgs" id="2491147760775412299" />
+      </scope>
+      <scope id="2491147760775412299" at="14,0,21,0">
+        <var name="ctx" id="2491147760775412299" />
+      </scope>
+      <unit id="2491147760775412299" at="22,0,25,0" name="ReykilLanguage.textGen.ReykillDSL_TextGen$LINKS" />
+      <unit id="2491147760775412299" at="13,0,26,0" name="ReykilLanguage.textGen.ReykillDSL_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="2491147760775412299" at="34,44,35,40" concept="6" />
+      <node id="2491147760775412299" at="45,61,46,52" concept="5" />
+      <node id="2491147760775412299" at="46,52,47,55" concept="5" />
+      <node id="2491147760775412299" at="47,55,48,110" concept="1" />
+      <node id="2491147760775412299" at="48,110,49,17" concept="0" />
+      <node id="2491147760775412703" at="53,60,54,68" concept="6" />
+      <node id="2491147760775416066" at="56,65,57,16" concept="6" />
+      <node id="2491147760775415356" at="59,56,60,22" concept="6" />
+      <node id="2491147760775412299" at="53,0,56,0" concept="9" trace="getFileName_ReykillDSL#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2491147760775412299" at="56,0,59,0" concept="9" trace="getFileExtension_ReykillDSL#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2491147760775412299" at="59,0,62,0" concept="9" trace="getPath_ReykillDSL#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="2491147760775412299" at="44,58,50,7" concept="3" />
+      <scope id="2491147760775412299" at="34,44,35,40" />
+      <scope id="2491147760775412299" at="53,60,54,68" />
+      <scope id="2491147760775412299" at="56,65,57,16" />
+      <scope id="2491147760775412299" at="59,56,60,22" />
+      <scope id="2491147760775412299" at="53,0,56,0">
+        <var name="node" id="2491147760775412299" />
+      </scope>
+      <scope id="2491147760775412299" at="56,0,59,0">
+        <var name="node" id="2491147760775412299" />
+      </scope>
+      <scope id="2491147760775412299" at="59,0,62,0">
+        <var name="node" id="2491147760775412299" />
+      </scope>
+      <scope id="2491147760775412299" at="45,61,49,17">
+        <var name="ext" id="2491147760775412299" />
+        <var name="fname" id="2491147760775412299" />
+      </scope>
+    </file>
+  </root>
+  <root nodeRef="r:bf2bc5b5-b6a6-4700-b3a6-32fb49780966(ReykilLanguage.textGen)/3287138861565746024">
+    <file name="ComponentRender_TextGen.java">
+      <node id="3287138861565746024" at="15,54,16,55" concept="5" />
+      <node id="3287138861565768435" at="17,98,18,27" concept="1" />
+      <node id="3287138861565746024" at="23,0,24,0" concept="8" trace="elemRender$AXvW" />
+      <node id="3287138861565768435" at="16,55,19,5" concept="2" />
+      <node id="3287138861565746024" at="14,0,21,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3287138861565768435" at="17,98,18,27" />
+      <scope id="3287138861565768435" at="16,55,19,5">
+        <var name="item" id="3287138861565768435" />
+      </scope>
+      <scope id="3287138861565746024" at="15,54,19,5">
+        <var name="tgs" id="3287138861565746024" />
+      </scope>
+      <scope id="3287138861565746024" at="14,0,21,0">
+        <var name="ctx" id="3287138861565746024" />
+      </scope>
+      <unit id="3287138861565746024" at="22,0,25,0" name="ReykilLanguage.textGen.ComponentRender_TextGen$LINKS" />
+      <unit id="3287138861565746024" at="13,0,26,0" name="ReykilLanguage.textGen.ComponentRender_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="3287138861565746024" at="28,49,29,45" concept="6" />
+      <scope id="3287138861565746024" at="28,49,29,45" />
+    </file>
+  </root>
+  <root nodeRef="r:bf2bc5b5-b6a6-4700-b3a6-32fb49780966(ReykilLanguage.textGen)/3287138861565769614">
+    <file name="TextGenAspectDescriptor.java">
+      <node id="3287138861565769614" at="36,45,37,41" concept="6" />
+      <scope id="3287138861565769614" at="36,45,37,41" />
+    </file>
+    <file name="TitleRender_TextGen.java">
+      <node id="3287138861565769614" at="14,54,15,55" concept="5" />
+      <node id="3287138861567959499" at="15,55,16,17" concept="1" />
+      <node id="3287138861565769672" at="16,17,17,23" concept="1" />
+      <node id="3287138861565769753" at="17,23,18,87" concept="1" />
+      <node id="3287138861565771191" at="18,87,19,24" concept="1" />
+      <node id="3287138861565835539" at="19,24,20,18" concept="1" />
+      <node id="3287138861565769614" at="24,0,25,0" concept="8" trace="title$_Bdg" />
+      <node id="3287138861565769614" at="13,0,22,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3287138861565769614" at="14,54,20,18">
+        <var name="tgs" id="3287138861565769614" />
+      </scope>
+      <scope id="3287138861565769614" at="13,0,22,0">
+        <var name="ctx" id="3287138861565769614" />
+      </scope>
+      <unit id="3287138861565769614" at="23,0,26,0" name="ReykilLanguage.textGen.TitleRender_TextGen$PROPS" />
+      <unit id="3287138861565769614" at="12,0,27,0" name="ReykilLanguage.textGen.TitleRender_TextGen" />
+    </file>
+  </root>
+  <root nodeRef="r:bf2bc5b5-b6a6-4700-b3a6-32fb49780966(ReykilLanguage.textGen)/3287138861565771317">
+    <file name="ParagraphRender_TextGen.java">
+      <node id="3287138861565771317" at="14,54,15,55" concept="5" />
+      <node id="3287138861567959072" at="15,55,16,17" concept="1" />
+      <node id="3287138861565771374" at="16,17,17,22" concept="1" />
+      <node id="3287138861565771451" at="17,22,18,86" concept="1" />
+      <node id="3287138861565772885" at="18,86,19,23" concept="1" />
+      <node id="3287138861565835243" at="19,23,20,18" concept="1" />
+      <node id="3287138861565771317" at="24,0,25,0" concept="8" trace="text$fBQR" />
+      <node id="3287138861565771317" at="13,0,22,0" concept="4" trace="generateText#(Ljetbrains/mps/text/rt/TextGenContext;)V" />
+      <scope id="3287138861565771317" at="14,54,20,18">
+        <var name="tgs" id="3287138861565771317" />
+      </scope>
+      <scope id="3287138861565771317" at="13,0,22,0">
+        <var name="ctx" id="3287138861565771317" />
+      </scope>
+      <unit id="3287138861565771317" at="23,0,26,0" name="ReykilLanguage.textGen.ParagraphRender_TextGen$PROPS" />
+      <unit id="3287138861565771317" at="12,0,27,0" name="ReykilLanguage.textGen.ParagraphRender_TextGen" />
+    </file>
+    <file name="TextGenAspectDescriptor.java">
+      <node id="3287138861565771317" at="30,49,31,45" concept="6" />
+      <scope id="3287138861565771317" at="30,49,31,45" />
+    </file>
+  </root>
+</debug-info>
+

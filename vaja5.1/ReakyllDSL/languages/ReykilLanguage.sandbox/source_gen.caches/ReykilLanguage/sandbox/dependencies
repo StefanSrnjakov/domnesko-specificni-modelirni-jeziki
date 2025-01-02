@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependenciesRoot>
+  <uses language="l:3ba2139d-18a1-4caa-99b1-d518013c442f:ReykilLanguage" />
+  <uses module="df7226c4-cdbb-48dd-a452-67869953da08(ReykilLanguage.runtime)" kind="rt" />
+</dependenciesRoot>
+

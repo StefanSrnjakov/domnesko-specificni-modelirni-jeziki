@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-// Common scrollbar styles
 const scrollbarStyles = {
   "&::-webkit-scrollbar": {
     width: "8px",
@@ -20,7 +19,6 @@ const scrollbarStyles = {
   },
 };
 
-// Create the fixed light theme
 const theme = createTheme({
   palette: {
     mode: "light",
