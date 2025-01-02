@@ -19,6 +19,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
+import appConfig from '../../appConfig';
 
 interface SideBarProps {
     drawerOpen: boolean;
@@ -35,27 +36,30 @@ const SideBar: React.FC<SideBarProps> = ({ drawerOpen, setDrawerOpen }) => {
     const renderDrawerItems = () => (
         <Box sx={{ width: 250 }} role="presentation">
             {/* Logo Section */}
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    p: 2,
-                    mb: 1,
-                    borderBottom: '1px solid #ccc',
-                    bgcolor: 'primary.main',
-                }}
-            >
+            {appConfig.layout.showHeader && (
                 <Box
-                    component="img"
-                    src={logoSrc}
-                    alt="Lost and Found concept"
                     sx={{
-                        width: '120px',
-                        height: 'auto',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        p: 2,
+                        mb: 1,
+                        borderBottom: '1px solid #ccc',
+                        bgcolor: 'primary.main',
                     }}
-                />
-            </Box>
+                >
+                    <Box
+                        component="img"
+                        src={logoSrc}
+                        alt="Lost and Found concept"
+                        sx={{
+                            width: '120px',
+                            height: 'auto',
+                        }}
+                    />
+                </Box>)
+            }
+
             <List>
                 {/* Navigation Links */}
                 <ListItem sx={{

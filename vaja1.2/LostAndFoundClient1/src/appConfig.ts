@@ -18,16 +18,16 @@ const appConfig = {
         showFooter: false
     },
     api: {
-        base: "http://localhost:3000/",
+        base: "http://localhost:3001/api",
         endpoints: {
             get: {
-                lostItems: "lost-items",
-                foundItems: "found-items",
+                lostItems: "items",
+                foundItems: "items",
                 profile: "profile"
             },
             post: {
-                reportLost: "report-lost",
-                reportFound: "report-found",
+                reportLost: "items",
+                reportFound: "items",
                 login: "login",
                 register: "register"
             }
@@ -38,38 +38,44 @@ const appConfig = {
             url: "/",
             title: "Welcome to the Lost and Found Platform",
             content: `
-                # Welcome to Lost and Found!
+Our platform helps people report and find lost items across various locations. Whether you've lost something precious or found an item and want to return it to its rightful owner, this platform makes it simple and secure to track and manage lost and found items.
 
-                Our platform helps people report and find lost items across various locations. Whether you've lost something precious or found an item and want to return it to its rightful owner, this platform makes it simple and secure to track and manage lost and found items.
+## Features:
+* Report lost or found items easily.
+* Browse lists of reported lost and found items.
+* Connect with others to return found items to their owners.
 
-                ## Features:
-                * Report lost or found items easily.
-                * Browse lists of reported lost and found items.
-                * Connect with others to return found items to their owners.
-
-                ### How to Get Started:
-                1. Publish a lost item or report a found item.
-                2. Browse lost or found items.
-                3. Manage your profile and keep track of your reports.
-            `,
+### How to Get Started:
+1. Publish a lost item or report a found item.
+2. Browse lost or found items.
+3. Manage your profile and keep track of your reports.
+`,
             quickLinks: {
                 view: "grid",
                 links: {
                     reportLostItem: {
-                        link: "/report-lost",
-                        text: "Publish lost item"
+                        title: 'Report Lost Items',
+                        description: 'Easily create a report for your lost item with details and location.',
+                        image: 'lost-item-home1.png',
+                        link: '/add-item',
                     },
                     reportFoundItem: {
-                        link: "/report-found",
-                        text: "You found something, report here"
+                        title: 'Report That You Found an Item',
+                        description: 'You found something, report here.',
+                        image: 'lost-item-home4.png',
+                        link: '/add-item',
                     },
                     listLostItem: {
-                        link: "/lost-items",
-                        text: "Check if someone published the item you found"
+                        title: 'Look for Lost Items',
+                        description: 'Check if someone published the item you found.',
+                        image: 'lost-item-home3.png',
+                        link: '/lost-items',
                     },
                     listFoundItem: {
-                        link: "/found-items",
-                        text: "Check if someone reported your lost item"
+                        title: 'Find Lost Items',
+                        description: 'Check if someone reported your lost item.',
+                        image: 'lost-item-home2.png',
+                        link: '/found-items',
                     }
                 }
             }
@@ -90,7 +96,7 @@ const appConfig = {
                 Browse through items that have been reported as found. Use the filters to narrow down the list by location or category, and find the item you've lost.
             `,
             data: "lostItems",
-            view: "grid"
+            view: "list"
         },
         ReportLost: {
             url: "/report-lost",

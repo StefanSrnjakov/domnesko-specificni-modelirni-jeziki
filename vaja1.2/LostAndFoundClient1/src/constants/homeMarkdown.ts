@@ -29,3 +29,13 @@ The Lost and Found application was created to help people recover lost items or 
 3. **Connect with Owners:** Once you find a match, contact the item owner to return the item.
 
 Join us in making the world a better place, where lost things can find their way back home!`
+
+export const FOOTER_MARKDOWN = `
+* Get in touch: contact@founditemstracker.com
+* Terms of Use
+* Privacy Policy
+
+### Follow us on social media:
+* Instagram: [@FoundItemsTracker](link:https://instagram.com/FoundItemsTracker)
+* LinkedIn: [Found Items Tracker](link:https://linkedin.com/company/found-item-tracke)
+`

@@ -8,6 +8,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import FoundItemListItem from '../components/item/ItemListItem';
+import appConfig from '../appConfig';
 
 const LostItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -42,12 +43,12 @@ const LostItems: React.FC = () => {
     return (
         <Container maxWidth="lg" sx={{ mt: 8, py: 4, boxShadow: 3, borderRadius: 2, bgcolor: 'background.paper' }}>
             <Typography variant="h4" align="center" gutterBottom>
-                Here for Lost Items
+                {appConfig.pages.LostItems.header}
             </Typography>
 
             {/* Descriptive Section */}
             <Typography variant="subtitle1" align="center" color="text.secondary" sx={{ mb: 4, px: 2 }}>
-                Browse through items that have been reported as lost. Use the filters to narrow down the list by location or category, and find what you're looking for more efficiently.
+                {appConfig.pages.LostItems.description}
             </Typography>
 
             {/* Toggle Button for Filters */}

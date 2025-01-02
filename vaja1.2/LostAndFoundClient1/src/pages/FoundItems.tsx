@@ -9,6 +9,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CategoryIcon from '@mui/icons-material/Category';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import DisplayFoundItems from '../components/item/DisplayFoundItems';
+import appConfig from '../appConfig';
 
 const FoundItems: React.FC = () => {
     const [items, setItems] = useState<Item[]>([]);
@@ -18,6 +20,7 @@ const FoundItems: React.FC = () => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [filtersOpen, setFiltersOpen] = useState(false);
+    const displayType = appConfig.pages.FoundItems.view as 'grid' | 'table' | 'list';
 
     useEffect(() => {
         const getItems = async () => {
@@ -110,7 +113,6 @@ const FoundItems: React.FC = () => {
                     />
                 </Box>
             </Collapse>
-
             {/* Display Count and Instructions */}
             {!loading && (
                 <Box textAlign="center" color="text.secondary" mb={4}>
@@ -119,33 +121,14 @@ const FoundItems: React.FC = () => {
                     </Typography>
                 </Box>
             )}
-
-            {/* Items Grid */}
-            {loading ? (
-                <Box display="flex" justifyContent="center" alignItems="center" sx={{ mt: 4 }}>
-                    <CircularProgress />
-                </Box>
-            ) : (
-                <>
-                    <Grid container spacing={4}>
-                        {items.map((item) => (
-                            <Grid item xs={12} sm={6} md={4} key={item._id}>
-                                <FoundItemCard item={item} />
-                            </Grid>
-                        ))}
-                    </Grid>
-
-                    {/* Pagination Control */}
-                    <Box display="flex" justifyContent="center" mt={6}>
-                        <Pagination
-                            count={totalPages}
-                            page={page}
-                            onChange={(event, value) => setPage(value)}
-                            color="primary"
-                        />
-                    </Box>
-                </>
-            )}
+            <DisplayFoundItems
+                items={items}
+                loading={loading}
+                displayType={displayType}
+                page={page}
+                totalPages={totalPages}
+                onPageChange={(event, value) => setPage(value)}
+            />
         </Container>
     );
 };

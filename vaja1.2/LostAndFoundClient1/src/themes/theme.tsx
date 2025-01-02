@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import appConfig from '../appConfig';
 
 const scrollbarStyles = {
   "&::-webkit-scrollbar": {
@@ -21,11 +22,11 @@ const scrollbarStyles = {
 
 const theme = createTheme({
   palette: {
-    mode: "light",
-    primary: { main: "#1976D2" },
-    secondary: { main: "#FF9800" },
-    error: { main: "#D32F2F" },
-    warning: { main: "#F44336" },
+    mode: appConfig.theme.mode as 'light' | 'dark',
+    primary: { main: appConfig.theme.primaryColor },
+    secondary: { main: appConfig.theme.secondaryColor },
+    error: { main: appConfig.theme.errorBtnColor },
+    warning: { main: appConfig.theme.warningBtnColor },
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',

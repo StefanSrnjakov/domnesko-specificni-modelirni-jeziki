@@ -14,6 +14,9 @@ import LostItems from '../pages/LostItems';
 import FoundItems from '../pages/FoundItems';
 import MyItems from '../pages/MyItems';
 import AddItem from '../pages/AddItem';
+import Footer from '../components/layout/Footer';
+import appConfig from '../appConfig';
+
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const { user, loading } = useAuthContext();
@@ -38,7 +41,9 @@ const AppRoutes: React.FC = () => {
       <AuthProvider>
         <Box sx={{ display: 'flex', height: '100vh' }}>
           {/* Sidebar */}
-          <SideBar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+          {appConfig.layout.showMenu &&
+            (<SideBar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />)
+          }
 
           {/* Main Content */}
           <Box
@@ -51,10 +56,10 @@ const AppRoutes: React.FC = () => {
             }}
           >
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path={appConfig.pages.Home.url} element={<HomePage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/about" element={<About />} />
+              <Route path={appConfig.pages.About.url} element={<About />} />
               <Route path="/session-expired" element={<SessionExpired />} />
               <Route
                 path="/profile"
@@ -98,6 +103,7 @@ const AppRoutes: React.FC = () => {
               />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
+            {appConfig.layout.showFooter && <Footer />}
           </Box>
         </Box>
       </AuthProvider>

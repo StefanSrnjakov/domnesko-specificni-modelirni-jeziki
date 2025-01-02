@@ -1,15 +1,16 @@
 // src/services/authService.ts
 import axios from 'axios'; // You can replace axios with fetch if you prefer
 import { tokenUtils } from '../utils/tokenUtils'; // Assuming you have token utilities
+import appConfig from '../appConfig';
 
 // Define the base URL of your API (e.g., from environment variables)
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+const API_URL = appConfig.api.base;
 
 export const itemService = {
     addItem: async (itemData: FormData): Promise<any> => {
         try {
             const token = tokenUtils.getToken();
-            const response = await axios.post(`${API_URL}/items`, itemData, {
+            const response = await axios.post(`${API_URL}/${appConfig.api.endpoints.post.reportFound}`, itemData, {
                 headers: {
                     Authorization: `${token}`,
                 },
@@ -23,7 +24,7 @@ export const itemService = {
     fetchFoundItems: async (filters: any): Promise<any> => {
         try {
             filters.type = 'found';
-            const response = await axios.get(`${API_URL}/items?filters=${JSON.stringify(filters)}`);
+            const response = await axios.get(`${API_URL}/${appConfig.api.endpoints.get.foundItems}?filters=${JSON.stringify(filters)}`);
             return response.data;
         } catch (error: any) {
             console.error('Fetch items error:', error);
@@ -33,7 +34,7 @@ export const itemService = {
     fetchLostItems: async (filters: any): Promise<any> => {
         try {
             filters.type = 'lost';
-            const response = await axios.get(`${API_URL}/items?filters=${JSON.stringify(filters)}`);
+            const response = await axios.get(`${API_URL}/${appConfig.api.endpoints.get.lostItems}?filters=${JSON.stringify(filters)}`);
             return response.data;
         } catch (error: any) {
             console.error('Fetch items error:', error);

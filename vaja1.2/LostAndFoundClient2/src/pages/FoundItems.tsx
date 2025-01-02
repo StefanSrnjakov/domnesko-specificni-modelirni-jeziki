@@ -97,7 +97,7 @@ const FoundItems: React.FC = () => {
                     </TableContainer>
 
                     {/* Pagination Control */}
-                    <Box display="flex" justifyContent="center" mt={6}>
+                    <Box display="flex" justifyContent="center" mt={6} >
                         <Pagination
                             count={totalPages}
                             page={page}
